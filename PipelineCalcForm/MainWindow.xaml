@@ -6,4 +6,32 @@
         xmlns:local="clr-namespace:PipelineCalcForm"
         xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" x:Class="PipelineCalcForm.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="474" Width="800"/>
+        Title="MainWindow" Height="552" Width="890">
+    <Grid Height="auto" Width="auto">
+        <Grid x:Name="BoxLabelGrid" HorizontalAlignment="Left" Height="auto" Width="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="192"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Grid.Column="0" Content="sdfsdf"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="werwer"/>
+        </Grid>
+
+        <Grid x:Name="PlotGrid" HorizontalAlignment="Right" Height="auto" Width="auto">
+            <Wpf:CartesianChart/>
+        </Grid>
+
+    </Grid>
+
+        <!--<Wpf:CartesianChart HorizontalAlignment="Stretch" Height="auto" Margin="3,2,0,0" VerticalAlignment="Stretch" Width="auto"/>-->
+</Window>

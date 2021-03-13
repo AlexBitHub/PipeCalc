@@ -9,7 +9,6 @@
         Title="MainWindow" Height="545.17" Width="800">
     <Grid>
         
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MinWidth="192"/>
             <ColumnDefinition Width="*"/>
@@ -30,13 +29,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ToolBar Grid.Row="0" Grid.ColumnSpan="3" Height="25" VerticalAlignment="Top">
+        <ToolBar Grid.Row="0" Grid.ColumnSpan="4" Height="25" VerticalAlignment="Top">
             <ToggleButton x:Name="play" Content="Play"/>
             <Separator/>
             <ToggleButton x:Name="stop" Content="Stop"/>
             <Separator/>
         </ToolBar>
-        <Grid HorizontalAlignment="Left" Margin="260,114,0,0" VerticalAlignment="Top"/>
+        
         <Label Grid.Column="0" Grid.Row="1" Content="Плотность, кг/м3" VerticalAlignment="Center"/>
         <Label Grid.Column="0" Grid.Row="2" Content="Вязкость, сСт" VerticalAlignment="Center"/>
         <Label Grid.Column="0" Grid.Row="3" Content="Упругость паров, МПа" VerticalAlignment="Center"/>
@@ -59,7 +58,6 @@
         <TabControl x:Name="TabsOfNps" Grid.ColumnSpan="2" Grid.Row="10"  Margin="5,2.5,0,10">
             <TabItem x:Name="MainStation" Header="ГНПС">
                 <Grid>
-
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="38*" />
                         <ColumnDefinition Width="128*"/>
@@ -85,12 +83,21 @@
                     <TextBox x:Name="NotDefined3" Grid.Row="3" Grid.Column="2" MaxHeight="25"/>
                     <TextBox x:Name="NotDefined4" Grid.Row="4" Grid.Column="2" MaxHeight="25"/>
                     <TextBox x:Name="NotDefined5" Grid.Row="5" Grid.Column="2" MaxHeight="25"/>
-
                 </Grid>
             </TabItem>
         </TabControl>
+        
         <GridSplitter Grid.Column="2" Grid.RowSpan="11" ShowsPreview="True" Width="5" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
-        
-        
+        <Wpf:CartesianChart Grid.Column="3" Grid.Row="1" Grid.RowSpan="10" LegendLocation="Right" Margin="2,0,5,10" Series="{Binding SeriesCollection}">
+            <Wpf:CartesianChart.AxisX>
+                <Wpf:Axis Title="Координата"/>
+            </Wpf:CartesianChart.AxisX>
+            <Wpf:CartesianChart.AxisY>
+                <Wpf:Axis Title="Напор"/>
+            </Wpf:CartesianChart.AxisY>
+        </Wpf:CartesianChart>
+        <!--<Wpf:CartesianChart Series="{Binding SeriesCollection}" Grid.Column="3"
+                            HorizontalAlignment="Stretch" Margin="10,2,0,0" Grid.RowSpan="10" VerticalAlignment="Stretch" Width="auto" Grid.Row="1" LegendLocation="Right"/>-->
+
     </Grid>
 </Window>
