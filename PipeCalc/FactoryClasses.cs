@@ -8,7 +8,7 @@ namespace PipeCalc
 {
     public static class FactoryClasses
     {
-        public static void CreateData()
+        public static (List<float>, List<int>) CreateData()
         {
             Oil Nafta = new Oil((float)0.02, 864, 15);
             
@@ -34,7 +34,11 @@ namespace PipeCalc
             StationNodes.AppendFirst(FirstSector);
             StationNodes.AppendFirst(SecondSector);
 
-            MainAlgorithms.ConvergenceIteration(StationNodes, Nafta, PipeLine);
+            var heads = MainAlgorithms.ConvergenceIteration(StationNodes, Nafta, PipeLine);
+            heads.Reverse();
+            Console.WriteLine($"{heads.Count} {Z_Spots.Count}");
+            return (heads, Z_Spots);
+
         }
     }
 }

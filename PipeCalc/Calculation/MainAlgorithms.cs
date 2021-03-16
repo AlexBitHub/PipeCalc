@@ -87,11 +87,11 @@ namespace PipeCalc
             EndPressure = Head;
         }
 
-        public static void ConvergenceIteration(LinkedSectorFromNPStoNPS ArraySectors, Oil oil, Pipeline pipe)
+        public static List<float> ConvergenceIteration(LinkedSectorFromNPStoNPS ArraySectors, Oil oil, Pipeline pipe)
         {
             int counter = 0; float Speed; float delta = 10;
             float HeadCurr = 0; float HeadPrev = 0; float SpeedCurr = 0; float SpeedPrev = 0;
-            
+            List<float> headArray = new List<float>();
 
             while (Math.Abs(delta) > 0.01 && counter < 50)
             {
@@ -106,7 +106,8 @@ namespace PipeCalc
                 //var HydroRes = HydroResist(NPS_Pipe.pipe.Roughness, Reyn);
                 //var HydroLoss = HydroLosses(HydroRes, Q, NPS_Pipe.pipe.Diameter) * 1000; // multiplicate to get losses per one km!
 
-                List<float> headArray = new List<float>();
+                //List<float> headArray = new List<float>();
+                headArray.Clear();
                 headArray.Add(PressureInEnd);
                 foreach (var sector in ArraySectors)
                 {
@@ -116,6 +117,7 @@ namespace PipeCalc
                 delta = PressureInEnd - ArraySectors.head.Data.station.HighSpot; // How much does ZSpot of station match with last values of pressure
                 (SpeedPrev, HeadPrev, SpeedCurr, HeadCurr) = (SpeedCurr, HeadCurr, Speed, delta);
             }
+            return headArray;
         }
     }
 }
