@@ -43,27 +43,37 @@ namespace Proba
             PlotHeads.Series = seriesColl;
         }
 
+        /// <summary>
+        /// Добавляет новую вкладку при двойном щелчке на название (только для вкладки ГНПС)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddNewTabOfNps(object sender, MouseButtonEventArgs e)
         {
-            TabItem tabItem = new TabItem();
-            tabItem.Name = $"TabOfNps{TabsOfNps.Items.Count}";
-            tabItem.Header = $"ППС №{TabsOfNps.Items.Count}";
-            tabItem.Content = new NewTab();
-            TabsOfNps.Items.Add(tabItem);
+            //создаю новую вкладку
+            TabItem NewTabOfNps = new TabItem() { Height = 25 };
+            
+            //название для вкладки и обработчик на её удаление
+            Label NameOfNps = new Label() { Content = $"ППС №{TabsOfNps.Items.Count}", Height = 25 };
+            NameOfNps.MouseDoubleClick += DeleteTabOfNps;
+            
+            //добавляю название в заголовок вкладки
+            NewTabOfNps.Header = NameOfNps;
+
+            //добавляю во вкладку содержание 
+            NewTabOfNps.Content = new ContentNewTabOfNps();
+            TabsOfNps.Items.Add(NewTabOfNps);
+        }
+
+        /// <summary>
+        /// Удаляет вкладку при двойном щелчке на название (только не для вкладки ГНПС)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteTabOfNps(object sender, MouseButtonEventArgs e)
+        {
+            var DeletedItem = (sender as Label).Parent;
+            TabsOfNps.Items.Remove(DeletedItem);
         }
     }
-
-    //class NewTabOfNps : TabControl
-    //{
-    //    public int NumberTabs;
-
-    //    public void CreateNewTab()
-    //    {
-    //        TabItem NewTab = new TabItem();
-    //        Grid TabGrid = new Grid();
-
-    //        ColumnDefinition ColumnsTab = new ColumnDefinition();
-    //        RowDefinition RowsTab = new RowDefinition();
-    //    }
-    //}
 }

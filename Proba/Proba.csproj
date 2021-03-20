@@ -61,6 +61,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\BottonToAddPump.xaml.cs">
+      <DependentUpon>BottonToAddPump.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ComboBoxPumps.xaml.cs">
+      <DependentUpon>ComboBoxPumps.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UserControls\BottonToAddPump.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,13 +83,17 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewTab.xaml">
+    <Page Include="UserControls\NewTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ComboBoxPumps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NewTab.xaml.cs">
+    <Compile Include="UserControls\NewTab.xaml.cs">
       <DependentUpon>NewTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
