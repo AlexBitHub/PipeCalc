@@ -5,16 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proba"
              mc:Ignorable="d">
-    <!--<Grid Margin="0,0,339,209">-->
-        <!--<ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1,0,-121,-22" SelectionChanged="AddOrDelPump">
-            <TextBlock></TextBlock> Height="25" Width="156"
-            <TextBlock>НМ 2500 200</TextBlock>
-            <TextBlock>НМ 5000 250</TextBlock>
-        </ComboBox>-->
-        <ComboBox HorizontalAlignment="Stretch" MaxHeight="25" SelectionChanged="AddOrDelPump" Width="156" VerticalAlignment="Top">
-            <TextBlock></TextBlock>
-            <TextBlock>НМ 2500 200</TextBlock>
-            <TextBlock>НМ 5000 250</TextBlock>
-        </ComboBox>
-    <!--</Grid>-->
+    <ComboBox HorizontalAlignment="Stretch" MaxHeight="25" Width="140" SelectionChanged="DelPump">
+        <TextBlock>Delete</TextBlock>
+        <TextBlock>НМ 2500 200</TextBlock>
+        <TextBlock>НМ 5000 250</TextBlock>
+        <TextBlock>НМ 7000 250</TextBlock>
+    </ComboBox>
 </UserControl>

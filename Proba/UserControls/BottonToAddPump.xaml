@@ -6,5 +6,5 @@
              xmlns:local="clr-namespace:Proba"
              mc:Ignorable="d" 
              d:DesignHeight="25" d:DesignWidth="95">
-    <Button x:Name="ButtonPump" Height="25" Width="95" Content="Добавить насос" Click="AddPump" VerticalAlignment="Top"/>
+    <Button x:Name="ButtonPump" Height="25" Width="95" Content="Основной насос" Click="AddPump" VerticalAlignment="Center"/>
 </UserControl>

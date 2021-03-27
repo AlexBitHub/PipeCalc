@@ -50,17 +50,17 @@ namespace Proba
         /// <param name="e"></param>
         private void AddNewTabOfNps(object sender, MouseButtonEventArgs e)
         {
-            //создаю новую вкладку
+            //создаём новую вкладку
             TabItem NewTabOfNps = new TabItem() { Height = 25 };
             
             //название для вкладки и обработчик на её удаление
             Label NameOfNps = new Label() { Content = $"ППС №{TabsOfNps.Items.Count}", Height = 25 };
             NameOfNps.MouseDoubleClick += DeleteTabOfNps;
             
-            //добавляю название в заголовок вкладки
+            //добавляем название в заголовок вкладки
             NewTabOfNps.Header = NameOfNps;
 
-            //добавляю во вкладку содержание 
+            //добавляем во вкладку содержание 
             NewTabOfNps.Content = new ContentNewTabOfNps();
             TabsOfNps.Items.Add(NewTabOfNps);
         }

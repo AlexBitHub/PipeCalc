@@ -20,32 +20,20 @@ namespace Proba
     /// </summary>
     public partial class ContentNewTabOfNps : UserControl
     {
-        public static int CountTabs = 0;
         public ContentNewTabOfNps()
         {
             InitializeComponent();
-            CountTabs++;
         }
 
-        // если первый ComboBox добавлен не как UserControl
-        //private void AddOrDelPump(object sender, SelectionChangedEventArgs e)
-        //{
-        //    ////if ((sender as ComboBox).SelectedIndex == -1 && )
-        //    ////(sender as ComboBox).
-        //    Grid parent = (Grid)VisualTreeHelper.GetParent(sender as ComboBox);
-        //    Console.WriteLine(parent);
-        //    parent.RowDefinitions.Add(new RowDefinition() { });
+        private void AddPump_Click(object sender, RoutedEventArgs e)
+        {
+            StackPanel parent = (StackPanel)(sender as Button).Parent;
+            ComboBoxPumps newCombo = new ComboBoxPumps();
 
-
-        //    Label newPump = new Label { Content = "Насос №{NumberOfPump}" };
-        //    parent.Children.Add(newPump);
-        //    Grid.SetRow(newPump, parent.RowDefinitions.Count - 1);
-        //    Grid.SetColumn(newPump, 0);
-
-        //    UserControl newCombo = new UserControl1();
-        //    parent.Children.Add(newCombo);
-        //    Grid.SetRow(newCombo, parent.RowDefinitions.Count - 1);
-        //    Grid.SetColumn(newCombo, 1);
-        //}
+            // настраиваем отступы
+            newCombo.Margin = new Thickness(1, 2, 1, 2);
+            // добавляем СomboBox в StackPanel 
+            parent.Children.Add(newCombo);
+        }
     }
 }

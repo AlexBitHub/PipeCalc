@@ -33,9 +33,6 @@ namespace Proba
 
             //if ((sender as ComboBox).SelectedIndex == -1 && parent.RowDefinitions.Count > 3)
             //    { parent. } here delete combobox
-
-
-            //parent.RowDefinitions.Add(new RowDefinition() { MaxHeight = 25 });
             
             // добавляем новый Row в Grid
             parent.RowDefinitions.Add(new RowDefinition() { MaxHeight = 30 });
