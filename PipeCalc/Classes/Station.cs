@@ -24,14 +24,12 @@ namespace PipeCalc
         }
         public float GetDiffPresure(float Q)
         {
-            var sumDiffHead = (from p in Pumps select p.GetPressure(Q)).Sum();
-            return sumDiffHead;
+            return (from p in Pumps select p.GetPressure(Q)).Sum();
         }
 
         public float GetFullPressure(float Q)
         {
-            var sumFullHead = (from p in Pumps select p.GetPressure(Q)).Sum() + HighSpot;
-            return sumFullHead;
+            return GetDiffPresure(Q) + HighSpot;
         }
     }
 }

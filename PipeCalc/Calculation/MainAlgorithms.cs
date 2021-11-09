@@ -9,7 +9,7 @@ namespace PipeCalc
 {
     static class MainAlgorithms
     {
-        static readonly double PI = Math.PI;
+        const double PI = Math.PI;
         
         /// <summary>
         /// Get number of reynolds
@@ -21,8 +21,7 @@ namespace PipeCalc
         static float NumberReynolds(float Q, float d, float visc)
         {
             //var reyn = speed * d / (visc * Math.Pow(10, -4));
-            var reyn = 4 * Q / (PI * d * visc * Math.Pow(10, -6));
-            return (float)reyn;
+            return (float)(4 * Q / (PI * d * visc * Math.Pow(10, -6)));
         }
 
         /// <summary>
@@ -51,8 +50,7 @@ namespace PipeCalc
         /// <returns></returns>
         static float HydroLosses(float resist, float Q, float d)
         {
-            float i = 8 * resist * (Q * Q) / (float)(Math.Pow(PI, 2) * Math.Pow(d, 5) * 9.81);
-            return i;
+            return 8 * resist * (Q * Q) / (float)(Math.Pow(PI, 2) * Math.Pow(d, 5) * 9.81);
         }
 
         static void IterationAlgorithm(SectorFromNPStoNPS NPS_Pipe, Oil oil, List<float> HeadArray,

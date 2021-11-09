@@ -51,8 +51,7 @@ namespace PipeCalc
         public float GetPressure(float Q)
         {
             Q = Q * 3600;
-            float H = a0 + a1 * Q + a2 * Q * Q + a3 * Q * Q * Q;
-            return H;
+            return a0 + a1 * Q + a2 * Q * Q + a3 * Q * Q * Q;
         }
         
         /// <summary>
@@ -63,8 +62,7 @@ namespace PipeCalc
         public float GetPower(float Q)
         {
             Q = Q * 3600;
-            float N = c0 + c1 * Q + c2 * Q * Q + c3 * Q * Q * Q;
-            return N;
+            return c0 + c1 * Q + c2 * Q * Q + c3 * Q * Q * Q;
         }
         
         /// <summary>
@@ -76,8 +74,7 @@ namespace PipeCalc
         /// <returns></returns>
         public float GetPower(float Q, float dens, float effic)
         {
-            float N = dens * (float)9.81 * GetPressure(Q) * Q / effic;
-            return N;
+            return dens * (float)9.81 * GetPressure(Q) * Q / effic;
         }
 
         /// <summary>
@@ -88,8 +85,7 @@ namespace PipeCalc
         /// <returns></returns>
         public float GetEfficiency(float dens, float Q)
         {
-            float Effic = dens * (float)9.81 * GetPressure(Q) * Q / GetPower(Q);
-            return Effic;
+            return dens * (float)9.81 * GetPressure(Q) * Q / GetPower(Q);
         }
     }
 }
