@@ -20,7 +20,7 @@ namespace CalculationPipeline
         /// </summary>
         public double VapourPressure 
         { 
-            get { return vapourPressure * Math.Pow(10, 6) / (9.81 * Density); } // from MPa to meters
+            get { return vapourPressure * 100000 / (9.81 * Density); } // from MPa to meters
             set { vapourPressure = value; } 
         }
 

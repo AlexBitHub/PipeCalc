@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithm\MainAlgorithms.cs" />
     <Compile Include="Classes\Oil.cs" />
     <Compile Include="Classes\Pipeline.cs" />
     <Compile Include="Classes\Pump.cs" />
