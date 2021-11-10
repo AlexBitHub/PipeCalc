@@ -11,17 +11,16 @@ namespace CalculationPipeline
     {
         public Pipeline pipe;
         public Station station;
-        public List<float> X_SpotsSector;
-        public List<float> Z_SpotsSector;
+        public List<double> X_SpotsSector;
+        public List<double> Z_SpotsSector;
 
-        public float EndPoint;
+        public double EndPoint;
         public SectorFromNPStoNPS (Pipeline pipe, Station station)
         {
             this.pipe = pipe; this.station = station;
         }
         public void GetListPoints()
         {
-            
             X_SpotsSector = (from x in pipe.XSpots
                              where x >= station.Coordinate && x <= EndPoint
                              select x).ToList();

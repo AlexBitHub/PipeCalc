@@ -13,12 +13,12 @@ namespace CalculationPipeline
         /// <summary>
         /// High mark of station (meters)
         /// </summary>
-        public float HighMark { get; set; }
+        public double HighMark { get; set; }
 
         /// <summary>
         /// Coordinate of station (km)
         /// </summary>
-        public float Coordinate { get; set; }
+        public double Coordinate { get; set; }
 
         /// <summary>
         /// All pumps at the station
@@ -28,9 +28,9 @@ namespace CalculationPipeline
         /// <summary>
         /// Minimal station inlet pressure
         /// </summary>
-        public float CavitationPressure { get; set; }
+        public double CavitationPressure { get; set; }
         
-        public Station(string name, float highSpot, float coordinate, List<Pump> pumps)
+        public Station(string name, double highSpot, double coordinate, List<Pump> pumps)
         {
             Name = name;
             HighMark = highSpot;
@@ -42,7 +42,7 @@ namespace CalculationPipeline
         /// <summary>
         /// Get pressure excluding high mark
         /// </summary>
-        public double GetDiffPresure(float Q)
+        public double GetDiffPresure(double Q)
         {
             return (from p in Pumps select p.GetPressure(Q)).Sum();
         }
@@ -50,7 +50,7 @@ namespace CalculationPipeline
         /// <summary>
         /// Get pressure considering high mark
         /// </summary>
-        public double GetFullPressure(float Q)
+        public double GetFullPressure(double Q)
         {
             return GetDiffPresure(Q) + HighMark;
         }

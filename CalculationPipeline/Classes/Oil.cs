@@ -24,7 +24,7 @@ namespace CalculationPipeline
             set { vapourPressure = value; } 
         }
 
-        public Oil(float vapourPressure, float density, float viscosity)
+        public Oil(double vapourPressure, double density, double viscosity)
         {
             this.vapourPressure = vapourPressure;
             Density = density;

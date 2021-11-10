@@ -9,24 +9,24 @@ namespace CalculationPipeline
     public class Pipeline
     {
         double maxPressure;
-        public float Length { get; set; } // set in km
-        public float Diameter { get; set; } // set in meters { return Diameter - 2 * Thickness; } 
-        public float Thickness { get; set; } // set in meters
-        public float Roughness { get; set; } // set in mm
+        public double Length { get; set; } // set in km
+        public double Diameter { get; set; } // set in meters { return Diameter - 2 * Thickness; } 
+        public double Thickness { get; set; } // set in meters
+        public double Roughness { get; set; } // set in mm
         public double MaxPressure
         {
-            get { return maxPressure * Math.Pow(10, 6) / 9810; }
+            get { return maxPressure * 100000 / 9810; }
             set { maxPressure = value; }
         } // set in MegaPascal
-        public List<float> HighSpots { get; set; } // set in meters
-        public List<float> XSpots { get; set; } // set in km
-        public Dictionary<float, float> HighAndCoordSpots { get; set; }
+        public List<double> HighSpots { get; set; } // set in meters
+        public List<double> XSpots { get; set; } // set in km
+        public Dictionary<double, double> HighAndCoordSpots { get; set; }
 
-        public float EndHighSpot { get; set; } // ?set in meters
-        public float EndPressure { get; set; } // ?set in meters oil column
+        public double EndHighSpot { get; set; } // ?set in meters
+        public double EndPressure { get; set; } // ?set in meters oil column
 
-        public Pipeline(float maxPressure, float length, float diameter, float thickness, float roughness,
-                List<float> highSpots, List<float> xSpots, float endHighSpot, float endPressure)
+        public Pipeline(double maxPressure, double length, double diameter, double thickness, double roughness,
+                List<double> highSpots, List<double> xSpots, double endHighSpot, double endPressure)
         {
             this.maxPressure = maxPressure;
             Length = length;
