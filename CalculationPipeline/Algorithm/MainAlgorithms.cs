@@ -98,7 +98,7 @@ namespace CalculationPipeline
                 foreach (var sector in ArraySectors)
                 {
                     //sector.pipe.EndPressure = PressureInEnd;
-                    IterationAlgorithm(sector, oil, headArray, (double)Speed, ref PressureInEnd, out string TextMess); // declare "TextMess"
+                    IterationAlgorithm(sector, oil, headArray, Speed, ref PressureInEnd, out string TextMess); // declare "TextMess"
                 }
                 delta = PressureInEnd - ArraySectors.head.Data.station.HighMark; // How much does ZSpot of station match with last values of pressure
                 (SpeedPrev, HeadPrev, SpeedCurr, HeadCurr) = (SpeedCurr, HeadCurr, Speed, delta);
