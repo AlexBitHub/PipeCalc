@@ -15,6 +15,23 @@ namespace PipeCalcForm
         public Form1()
         {
             InitializeComponent();
+            
+        }
+
+        private void hidingSubPanelProperties()
+        {
+            panelOilProperties.Visible = false;
+            panelPipeProperties.Visible = false;
+        }
+
+        private void btnOilProperties_Click(object sender, EventArgs e)
+        {
+            panelOilProperties.Visible = !panelOilProperties.Visible;
+        }
+
+        private void btnPipeProperties_Click(object sender, EventArgs e)
+        {
+            panelPipeProperties.Visible = !panelPipeProperties.Visible;
         }
     }
 }
