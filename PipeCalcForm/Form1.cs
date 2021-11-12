@@ -33,5 +33,10 @@ namespace PipeCalcForm
         {
             panelPipeProperties.Visible = !panelPipeProperties.Visible;
         }
+
+        private void btnStationProperties_Click(object sender, EventArgs e)
+        {
+            panelStationProperties.Visible = !panelStationProperties.Visible;
+        }
     }
 }
