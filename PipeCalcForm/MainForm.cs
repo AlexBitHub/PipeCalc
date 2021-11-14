@@ -52,6 +52,10 @@ namespace PipeCalcForm
         {
             panelBorderConditions.Visible = !panelBorderConditions.Visible;
         }
+        private void btnPipelineProfile_Click(object sender, EventArgs e)
+        {
+            panelPipelineProfile.Visible = !panelPipelineProfile.Visible;
+        }
 
 
         /// <summary>
@@ -111,6 +115,11 @@ namespace PipeCalcForm
             get { return int.Parse(txtBoxEndHigh.Text); }
         }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CoordinateAndHighMarkForm coordinateAndHighMarkForm = new CoordinateAndHighMarkForm();
+            coordinateAndHighMarkForm.TopLevel = true;
+            coordinateAndHighMarkForm.Show();
+        }
     }
 }
