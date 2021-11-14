@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PipeCalcForm
 {
-    public partial class TabPageStation : Form
+    public partial class UserTabPageStation : UserControl
     {
-        public TabPageStation()
+        public UserTabPageStation()
         {
             InitializeComponent();
         }

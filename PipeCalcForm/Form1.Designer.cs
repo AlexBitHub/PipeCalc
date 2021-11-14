@@ -29,7 +29,19 @@ namespace PipeCalcForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.panelBorderConditions = new System.Windows.Forms.Panel();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.txtBoxEndHigh = new System.Windows.Forms.TextBox();
+            this.txtBoxEndPressure = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnBorderConditions = new System.Windows.Forms.Button();
+            this.panelStationProperties = new System.Windows.Forms.Panel();
+            this.tabCntrStations = new System.Windows.Forms.TabControl();
+            this.tabPageMainStation = new System.Windows.Forms.TabPage();
+            this.panelMainStation = new System.Windows.Forms.Panel();
+            this.btnStationProperties = new System.Windows.Forms.Button();
             this.panelPipeProperties = new System.Windows.Forms.Panel();
             this.txtBoxRoughness = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,22 +60,23 @@ namespace PipeCalcForm
             this.txtBoxDens = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOilProperties = new System.Windows.Forms.Button();
-            this.btnStationProperties = new System.Windows.Forms.Button();
-            this.panelStationProperties = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chartGraphic = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelSideMenu.SuspendLayout();
+            this.panelBorderConditions.SuspendLayout();
+            this.panelStationProperties.SuspendLayout();
+            this.tabCntrStations.SuspendLayout();
+            this.tabPageMainStation.SuspendLayout();
             this.panelPipeProperties.SuspendLayout();
             this.panelOilProperties.SuspendLayout();
-            this.panelStationProperties.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartGraphic)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelSideMenu.Controls.Add(this.panelBorderConditions);
+            this.panelSideMenu.Controls.Add(this.btnBorderConditions);
             this.panelSideMenu.Controls.Add(this.panelStationProperties);
             this.panelSideMenu.Controls.Add(this.btnStationProperties);
             this.panelSideMenu.Controls.Add(this.panelPipeProperties);
@@ -75,6 +88,115 @@ namespace PipeCalcForm
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(282, 554);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // panelBorderConditions
+            // 
+            this.panelBorderConditions.BackColor = System.Drawing.Color.Silver;
+            this.panelBorderConditions.Controls.Add(this.richTextBox2);
+            this.panelBorderConditions.Controls.Add(this.txtBoxEndHigh);
+            this.panelBorderConditions.Controls.Add(this.txtBoxEndPressure);
+            this.panelBorderConditions.Controls.Add(this.label9);
+            this.panelBorderConditions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelBorderConditions.Location = new System.Drawing.Point(0, 495);
+            this.panelBorderConditions.Name = "panelBorderConditions";
+            this.panelBorderConditions.Size = new System.Drawing.Size(265, 69);
+            this.panelBorderConditions.TabIndex = 9;
+            this.panelBorderConditions.Visible = false;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.Color.Silver;
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Location = new System.Drawing.Point(13, 31);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(136, 38);
+            this.richTextBox2.TabIndex = 8;
+            this.richTextBox2.Text = "Конечная высотная отметка, м";
+            // 
+            // txtBoxEndHigh
+            // 
+            this.txtBoxEndHigh.Location = new System.Drawing.Point(170, 37);
+            this.txtBoxEndHigh.Name = "txtBoxEndHigh";
+            this.txtBoxEndHigh.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxEndHigh.TabIndex = 5;
+            // 
+            // txtBoxEndPressure
+            // 
+            this.txtBoxEndPressure.Location = new System.Drawing.Point(170, 6);
+            this.txtBoxEndPressure.Name = "txtBoxEndPressure";
+            this.txtBoxEndPressure.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxEndPressure.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 17);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Конечный напор, м";
+            // 
+            // btnBorderConditions
+            // 
+            this.btnBorderConditions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBorderConditions.Location = new System.Drawing.Point(0, 465);
+            this.btnBorderConditions.Name = "btnBorderConditions";
+            this.btnBorderConditions.Size = new System.Drawing.Size(265, 30);
+            this.btnBorderConditions.TabIndex = 8;
+            this.btnBorderConditions.Text = "Граничные условия";
+            this.btnBorderConditions.UseVisualStyleBackColor = true;
+            this.btnBorderConditions.Click += new System.EventHandler(this.btnBorderConditions_Click);
+            // 
+            // panelStationProperties
+            // 
+            this.panelStationProperties.BackColor = System.Drawing.Color.Silver;
+            this.panelStationProperties.Controls.Add(this.tabCntrStations);
+            this.panelStationProperties.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStationProperties.Location = new System.Drawing.Point(0, 308);
+            this.panelStationProperties.Name = "panelStationProperties";
+            this.panelStationProperties.Size = new System.Drawing.Size(265, 157);
+            this.panelStationProperties.TabIndex = 7;
+            this.panelStationProperties.Visible = false;
+            // 
+            // tabCntrStations
+            // 
+            this.tabCntrStations.Controls.Add(this.tabPageMainStation);
+            this.tabCntrStations.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabCntrStations.Location = new System.Drawing.Point(0, 0);
+            this.tabCntrStations.Name = "tabCntrStations";
+            this.tabCntrStations.SelectedIndex = 0;
+            this.tabCntrStations.Size = new System.Drawing.Size(265, 157);
+            this.tabCntrStations.TabIndex = 0;
+            this.tabCntrStations.DoubleClick += new System.EventHandler(this.tabCntrStations_DoubleClick);
+            // 
+            // tabPageMainStation
+            // 
+            this.tabPageMainStation.Controls.Add(this.panelMainStation);
+            this.tabPageMainStation.Location = new System.Drawing.Point(4, 25);
+            this.tabPageMainStation.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPageMainStation.Name = "tabPageMainStation";
+            this.tabPageMainStation.Size = new System.Drawing.Size(257, 128);
+            this.tabPageMainStation.TabIndex = 0;
+            this.tabPageMainStation.Text = "МНПС";
+            this.tabPageMainStation.UseVisualStyleBackColor = true;
+            // 
+            // panelMainStation
+            // 
+            this.panelMainStation.Location = new System.Drawing.Point(0, 0);
+            this.panelMainStation.Name = "panelMainStation";
+            this.panelMainStation.Size = new System.Drawing.Size(274, 128);
+            this.panelMainStation.TabIndex = 0;
+            // 
+            // btnStationProperties
+            // 
+            this.btnStationProperties.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStationProperties.Location = new System.Drawing.Point(0, 278);
+            this.btnStationProperties.Name = "btnStationProperties";
+            this.btnStationProperties.Size = new System.Drawing.Size(265, 30);
+            this.btnStationProperties.TabIndex = 6;
+            this.btnStationProperties.Text = "Перекачивающие станции";
+            this.btnStationProperties.UseVisualStyleBackColor = true;
+            this.btnStationProperties.Click += new System.EventHandler(this.btnStationProperties_Click);
             // 
             // panelPipeProperties
             // 
@@ -90,7 +212,7 @@ namespace PipeCalcForm
             this.panelPipeProperties.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPipeProperties.Location = new System.Drawing.Point(0, 152);
             this.panelPipeProperties.Name = "panelPipeProperties";
-            this.panelPipeProperties.Size = new System.Drawing.Size(282, 126);
+            this.panelPipeProperties.Size = new System.Drawing.Size(265, 126);
             this.panelPipeProperties.TabIndex = 3;
             this.panelPipeProperties.Visible = false;
             // 
@@ -104,7 +226,7 @@ namespace PipeCalcForm
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 96);
+            this.label6.Location = new System.Drawing.Point(12, 96);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(134, 17);
             this.label6.TabIndex = 9;
@@ -114,7 +236,7 @@ namespace PipeCalcForm
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.Silver;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(13, 58);
+            this.richTextBox1.Location = new System.Drawing.Point(14, 58);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(136, 38);
             this.richTextBox1.TabIndex = 8;
@@ -137,7 +259,7 @@ namespace PipeCalcForm
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 38);
+            this.label5.Location = new System.Drawing.Point(13, 36);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 17);
             this.label5.TabIndex = 4;
@@ -164,7 +286,7 @@ namespace PipeCalcForm
             this.btnPipeProperties.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPipeProperties.Location = new System.Drawing.Point(0, 122);
             this.btnPipeProperties.Name = "btnPipeProperties";
-            this.btnPipeProperties.Size = new System.Drawing.Size(282, 30);
+            this.btnPipeProperties.Size = new System.Drawing.Size(265, 30);
             this.btnPipeProperties.TabIndex = 2;
             this.btnPipeProperties.Text = "Параметры трубопровода";
             this.btnPipeProperties.UseVisualStyleBackColor = true;
@@ -182,7 +304,7 @@ namespace PipeCalcForm
             this.panelOilProperties.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelOilProperties.Location = new System.Drawing.Point(0, 30);
             this.panelOilProperties.Name = "panelOilProperties";
-            this.panelOilProperties.Size = new System.Drawing.Size(282, 92);
+            this.panelOilProperties.Size = new System.Drawing.Size(265, 92);
             this.panelOilProperties.TabIndex = 1;
             this.panelOilProperties.Visible = false;
             // 
@@ -239,82 +361,45 @@ namespace PipeCalcForm
             this.btnOilProperties.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOilProperties.Location = new System.Drawing.Point(0, 0);
             this.btnOilProperties.Name = "btnOilProperties";
-            this.btnOilProperties.Size = new System.Drawing.Size(282, 30);
+            this.btnOilProperties.Size = new System.Drawing.Size(265, 30);
             this.btnOilProperties.TabIndex = 0;
             this.btnOilProperties.Text = "Свойства нефти";
             this.btnOilProperties.UseVisualStyleBackColor = true;
             this.btnOilProperties.Click += new System.EventHandler(this.btnOilProperties_Click);
             // 
-            // btnStationProperties
+            // chartGraphic
             // 
-            this.btnStationProperties.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStationProperties.Location = new System.Drawing.Point(0, 278);
-            this.btnStationProperties.Name = "btnStationProperties";
-            this.btnStationProperties.Size = new System.Drawing.Size(282, 30);
-            this.btnStationProperties.TabIndex = 4;
-            this.btnStationProperties.Text = "Перекачивающие станции";
-            this.btnStationProperties.UseVisualStyleBackColor = true;
-            this.btnStationProperties.Click += new System.EventHandler(this.btnStationProperties_Click);
-            // 
-            // panelStationProperties
-            // 
-            this.panelStationProperties.BackColor = System.Drawing.Color.Silver;
-            this.panelStationProperties.Controls.Add(this.tabControl1);
-            this.panelStationProperties.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStationProperties.Location = new System.Drawing.Point(0, 308);
-            this.panelStationProperties.Name = "panelStationProperties";
-            this.panelStationProperties.Size = new System.Drawing.Size(282, 157);
-            this.panelStationProperties.TabIndex = 5;
-            this.panelStationProperties.Visible = false;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(282, 157);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(274, 128);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 71);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.chartGraphic.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chartGraphic.Legends.Add(legend1);
+            this.chartGraphic.Location = new System.Drawing.Point(282, 0);
+            this.chartGraphic.Name = "chartGraphic";
+            this.chartGraphic.Size = new System.Drawing.Size(785, 554);
+            this.chartGraphic.TabIndex = 1;
+            this.chartGraphic.Text = "График гидроуклона";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.chartGraphic);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panelSideMenu.ResumeLayout(false);
+            this.panelBorderConditions.ResumeLayout(false);
+            this.panelBorderConditions.PerformLayout();
+            this.panelStationProperties.ResumeLayout(false);
+            this.tabCntrStations.ResumeLayout(false);
+            this.tabPageMainStation.ResumeLayout(false);
             this.panelPipeProperties.ResumeLayout(false);
             this.panelPipeProperties.PerformLayout();
             this.panelOilProperties.ResumeLayout(false);
             this.panelOilProperties.PerformLayout();
-            this.panelStationProperties.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartGraphic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,11 +425,18 @@ namespace PipeCalcForm
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox txtBoxRoughness;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panelBorderConditions;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.TextBox txtBoxEndPressure;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnBorderConditions;
         private System.Windows.Forms.Panel panelStationProperties;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tabCntrStations;
+        private System.Windows.Forms.TabPage tabPageMainStation;
+        private System.Windows.Forms.Panel panelMainStation;
         private System.Windows.Forms.Button btnStationProperties;
+        private System.Windows.Forms.TextBox txtBoxEndHigh;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartGraphic;
     }
 }
 
