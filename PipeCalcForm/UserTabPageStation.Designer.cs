@@ -30,9 +30,9 @@ namespace PipeCalcForm
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBoxHighMark = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxCoordinate = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -46,12 +46,12 @@ namespace PipeCalcForm
             this.label2.TabIndex = 19;
             this.label2.Text = "Высотная отметка, м";
             // 
-            // textBox2
+            // txtBoxHighMark
             // 
-            this.textBox2.Location = new System.Drawing.Point(152, 34);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 18;
+            this.txtBoxHighMark.Location = new System.Drawing.Point(152, 34);
+            this.txtBoxHighMark.Name = "txtBoxHighMark";
+            this.txtBoxHighMark.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxHighMark.TabIndex = 18;
             // 
             // label1
             // 
@@ -62,12 +62,12 @@ namespace PipeCalcForm
             this.label1.TabIndex = 17;
             this.label1.Text = "Координата, км";
             // 
-            // textBox1
+            // txtBoxCoordinate
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 16;
+            this.txtBoxCoordinate.Location = new System.Drawing.Point(152, 5);
+            this.txtBoxCoordinate.Name = "txtBoxCoordinate";
+            this.txtBoxCoordinate.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxCoordinate.TabIndex = 16;
             // 
             // comboBox1
             // 
@@ -93,9 +93,9 @@ namespace PipeCalcForm
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBoxHighMark);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxCoordinate);
             this.Name = "UserTabPageStation";
             this.Size = new System.Drawing.Size(252, 128);
             this.ResumeLayout(false);
@@ -106,9 +106,9 @@ namespace PipeCalcForm
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBoxHighMark;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxCoordinate;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
     }

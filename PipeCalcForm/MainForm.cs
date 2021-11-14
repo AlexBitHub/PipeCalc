@@ -11,12 +11,13 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PipeCalcForm
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             UserTabPageStation utpStation = new UserTabPageStation();
+            
             utpStation.Dock = DockStyle.Fill;
             panelMainStation.Controls.Add(utpStation);
             //tabPageMainStation.Controls.Add(utpStation);
@@ -32,11 +33,6 @@ namespace PipeCalcForm
             chartGraphic.Series.Add(mySeriesPoint);
         }
 
-        private void hidingSubPanelProperties()
-        {
-            panelOilProperties.Visible = false;
-            panelPipeProperties.Visible = false;
-        }
 
         private void btnOilProperties_Click(object sender, EventArgs e)
         {
@@ -52,11 +48,11 @@ namespace PipeCalcForm
         {
             panelStationProperties.Visible = !panelStationProperties.Visible;
         }
-
-        private void tabPageMainStation_DoubleClick(object sender, EventArgs e)
+        private void btnBorderConditions_Click(object sender, EventArgs e)
         {
-            
+            panelBorderConditions.Visible = !panelBorderConditions.Visible;
         }
+
 
         /// <summary>
         /// Add page of station if main page selected, else delete selected page
@@ -76,9 +72,45 @@ namespace PipeCalcForm
             }
         }
 
-        private void btnBorderConditions_Click(object sender, EventArgs e)
+        public double Density
         {
-            panelBorderConditions.Visible = !panelBorderConditions.Visible;
+            get { return int.Parse(txtBoxDens.Text); }
         }
+        public double Viscosity
+        {
+            get { return int.Parse(txtBoxViscos.Text); }
+        }
+        public double VapourPressure
+        {
+            get { return int.Parse(txtBoxVapourPres.Text); }
+        }
+
+        public double Diameter
+        {
+            get { return int.Parse(txtBoxDiameter.Text); }
+        }
+        public double LengthPipeline
+        {
+            get { return int.Parse(txtBoxLength.Text); }
+        }
+        public double Thickness
+        {
+            get { return int.Parse(txtBoxThickness.Text); }
+        }
+        public double Roughness
+        {
+            get { return int.Parse(txtBoxRoughness.Text); }
+        }
+
+        public double EndPressure
+        {
+            get { return int.Parse(txtBoxEndPressure.Text); }
+        }
+        public double EndHighMark
+        {
+            get { return int.Parse(txtBoxEndHigh.Text); }
+        }
+
+
     }
 }

@@ -16,5 +16,10 @@ namespace PipeCalcForm
         {
             InitializeComponent();
         }
+
+        private void GetAllParameters()
+        {
+            
+        }
     }
 }

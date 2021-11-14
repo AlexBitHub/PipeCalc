@@ -49,6 +49,7 @@
     <Compile Include="Classes\Pump.cs" />
     <Compile Include="Classes\SectorFromNPStoNPS.cs" />
     <Compile Include="Classes\Station.cs" />
+    <Compile Include="DataFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
