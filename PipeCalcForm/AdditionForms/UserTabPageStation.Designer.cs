@@ -33,8 +33,11 @@ namespace PipeCalcForm
             this.txtBoxHighMark = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBoxCoordinate = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.dataGridPumps = new System.Windows.Forms.DataGridView();
+            this.columnCmbBoxBoostPumps = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.columnCmbBoxMainPumps = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPumps)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -69,14 +72,6 @@ namespace PipeCalcForm
             this.txtBoxCoordinate.Size = new System.Drawing.Size(100, 20);
             this.txtBoxCoordinate.TabIndex = 16;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(152, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 20;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -86,18 +81,44 @@ namespace PipeCalcForm
             this.label3.TabIndex = 21;
             this.label3.Text = "Насосы";
             // 
+            // dataGridPumps
+            // 
+            this.dataGridPumps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPumps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnCmbBoxBoostPumps,
+            this.columnCmbBoxMainPumps});
+            this.dataGridPumps.Location = new System.Drawing.Point(5, 86);
+            this.dataGridPumps.Name = "dataGridPumps";
+            this.dataGridPumps.Size = new System.Drawing.Size(247, 109);
+            this.dataGridPumps.TabIndex = 24;
+            // 
+            // columnCmbBoxBoostPumps
+            // 
+            this.columnCmbBoxBoostPumps.HeaderText = "Подпорные";
+            this.columnCmbBoxBoostPumps.Name = "columnCmbBoxBoostPumps";
+            this.columnCmbBoxBoostPumps.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.columnCmbBoxBoostPumps.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // columnCmbBoxMainPumps
+            // 
+            this.columnCmbBoxMainPumps.HeaderText = "Магистральные";
+            this.columnCmbBoxMainPumps.Name = "columnCmbBoxMainPumps";
+            this.columnCmbBoxMainPumps.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.columnCmbBoxMainPumps.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // UserTabPageStation
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
+            this.Controls.Add(this.dataGridPumps);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBoxHighMark);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBoxCoordinate);
             this.Name = "UserTabPageStation";
-            this.Size = new System.Drawing.Size(252, 128);
+            this.Size = new System.Drawing.Size(274, 224);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPumps)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,7 +130,9 @@ namespace PipeCalcForm
         private System.Windows.Forms.TextBox txtBoxHighMark;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBoxCoordinate;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridPumps;
+        private System.Windows.Forms.DataGridViewComboBoxColumn columnCmbBoxBoostPumps;
+        private System.Windows.Forms.DataGridViewComboBoxColumn columnCmbBoxMainPumps;
     }
 }

@@ -31,6 +31,10 @@ namespace PipeCalcForm
         {
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.panelPipelineProfile = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnSetMarks = new System.Windows.Forms.Button();
+            this.btnPipelineProfile = new System.Windows.Forms.Button();
             this.panelBorderConditions = new System.Windows.Forms.Panel();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.txtBoxEndHigh = new System.Windows.Forms.TextBox();
@@ -61,11 +65,8 @@ namespace PipeCalcForm
             this.label1 = new System.Windows.Forms.Label();
             this.btnOilProperties = new System.Windows.Forms.Button();
             this.chartGraphic = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panelPipelineProfile = new System.Windows.Forms.Panel();
-            this.btnPipelineProfile = new System.Windows.Forms.Button();
-            this.btnSetMarks = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
+            this.panelPipelineProfile.SuspendLayout();
             this.panelBorderConditions.SuspendLayout();
             this.panelStationProperties.SuspendLayout();
             this.tabCntrStations.SuspendLayout();
@@ -73,7 +74,6 @@ namespace PipeCalcForm
             this.panelPipeProperties.SuspendLayout();
             this.panelOilProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartGraphic)).BeginInit();
-            this.panelPipelineProfile.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -96,6 +96,46 @@ namespace PipeCalcForm
             this.panelSideMenu.Size = new System.Drawing.Size(282, 701);
             this.panelSideMenu.TabIndex = 0;
             // 
+            // panelPipelineProfile
+            // 
+            this.panelPipelineProfile.BackColor = System.Drawing.Color.Silver;
+            this.panelPipelineProfile.Controls.Add(this.button3);
+            this.panelPipelineProfile.Controls.Add(this.btnSetMarks);
+            this.panelPipelineProfile.Location = new System.Drawing.Point(0, 696);
+            this.panelPipelineProfile.Name = "panelPipelineProfile";
+            this.panelPipelineProfile.Size = new System.Drawing.Size(282, 77);
+            this.panelPipelineProfile.TabIndex = 11;
+            this.panelPipelineProfile.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(141, 6);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(84, 53);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Загрузить отметки";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btnSetMarks
+            // 
+            this.btnSetMarks.Location = new System.Drawing.Point(52, 6);
+            this.btnSetMarks.Name = "btnSetMarks";
+            this.btnSetMarks.Size = new System.Drawing.Size(83, 53);
+            this.btnSetMarks.TabIndex = 0;
+            this.btnSetMarks.Text = "Задать отметки";
+            this.btnSetMarks.UseVisualStyleBackColor = true;
+            this.btnSetMarks.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnPipelineProfile
+            // 
+            this.btnPipelineProfile.Location = new System.Drawing.Point(0, 666);
+            this.btnPipelineProfile.Name = "btnPipelineProfile";
+            this.btnPipelineProfile.Size = new System.Drawing.Size(282, 30);
+            this.btnPipelineProfile.TabIndex = 10;
+            this.btnPipelineProfile.Text = "Профиль трубопровода";
+            this.btnPipelineProfile.UseVisualStyleBackColor = true;
+            this.btnPipelineProfile.Click += new System.EventHandler(this.btnPipelineProfile_Click);
+            // 
             // panelBorderConditions
             // 
             this.panelBorderConditions.BackColor = System.Drawing.Color.Silver;
@@ -103,8 +143,7 @@ namespace PipeCalcForm
             this.panelBorderConditions.Controls.Add(this.txtBoxEndHigh);
             this.panelBorderConditions.Controls.Add(this.txtBoxEndPressure);
             this.panelBorderConditions.Controls.Add(this.label9);
-            this.panelBorderConditions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBorderConditions.Location = new System.Drawing.Point(0, 495);
+            this.panelBorderConditions.Location = new System.Drawing.Point(0, 597);
             this.panelBorderConditions.Name = "panelBorderConditions";
             this.panelBorderConditions.Size = new System.Drawing.Size(282, 69);
             this.panelBorderConditions.TabIndex = 9;
@@ -114,7 +153,7 @@ namespace PipeCalcForm
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.Silver;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(13, 31);
+            this.richTextBox2.Location = new System.Drawing.Point(13, 30);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(136, 38);
             this.richTextBox2.TabIndex = 8;
@@ -145,8 +184,7 @@ namespace PipeCalcForm
             // 
             // btnBorderConditions
             // 
-            this.btnBorderConditions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBorderConditions.Location = new System.Drawing.Point(0, 465);
+            this.btnBorderConditions.Location = new System.Drawing.Point(0, 567);
             this.btnBorderConditions.Name = "btnBorderConditions";
             this.btnBorderConditions.Size = new System.Drawing.Size(282, 30);
             this.btnBorderConditions.TabIndex = 8;
@@ -161,18 +199,17 @@ namespace PipeCalcForm
             this.panelStationProperties.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStationProperties.Location = new System.Drawing.Point(0, 308);
             this.panelStationProperties.Name = "panelStationProperties";
-            this.panelStationProperties.Size = new System.Drawing.Size(282, 157);
+            this.panelStationProperties.Size = new System.Drawing.Size(282, 253);
             this.panelStationProperties.TabIndex = 7;
             this.panelStationProperties.Visible = false;
             // 
             // tabCntrStations
             // 
             this.tabCntrStations.Controls.Add(this.tabPageMainStation);
-            this.tabCntrStations.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabCntrStations.Location = new System.Drawing.Point(0, 0);
+            this.tabCntrStations.Location = new System.Drawing.Point(0, 1);
             this.tabCntrStations.Name = "tabCntrStations";
             this.tabCntrStations.SelectedIndex = 0;
-            this.tabCntrStations.Size = new System.Drawing.Size(282, 157);
+            this.tabCntrStations.Size = new System.Drawing.Size(282, 249);
             this.tabCntrStations.TabIndex = 0;
             this.tabCntrStations.DoubleClick += new System.EventHandler(this.tabCntrStations_DoubleClick);
             // 
@@ -182,7 +219,7 @@ namespace PipeCalcForm
             this.tabPageMainStation.Location = new System.Drawing.Point(4, 25);
             this.tabPageMainStation.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageMainStation.Name = "tabPageMainStation";
-            this.tabPageMainStation.Size = new System.Drawing.Size(274, 128);
+            this.tabPageMainStation.Size = new System.Drawing.Size(274, 220);
             this.tabPageMainStation.TabIndex = 0;
             this.tabPageMainStation.Text = "МНПС";
             this.tabPageMainStation.UseVisualStyleBackColor = true;
@@ -191,7 +228,7 @@ namespace PipeCalcForm
             // 
             this.panelMainStation.Location = new System.Drawing.Point(0, 0);
             this.panelMainStation.Name = "panelMainStation";
-            this.panelMainStation.Size = new System.Drawing.Size(274, 128);
+            this.panelMainStation.Size = new System.Drawing.Size(274, 224);
             this.panelMainStation.TabIndex = 0;
             // 
             // btnStationProperties
@@ -385,48 +422,6 @@ namespace PipeCalcForm
             this.chartGraphic.TabIndex = 1;
             this.chartGraphic.Text = "График гидроуклона";
             // 
-            // panelPipelineProfile
-            // 
-            this.panelPipelineProfile.BackColor = System.Drawing.Color.Silver;
-            this.panelPipelineProfile.Controls.Add(this.button3);
-            this.panelPipelineProfile.Controls.Add(this.btnSetMarks);
-            this.panelPipelineProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPipelineProfile.Location = new System.Drawing.Point(0, 594);
-            this.panelPipelineProfile.Name = "panelPipelineProfile";
-            this.panelPipelineProfile.Size = new System.Drawing.Size(282, 77);
-            this.panelPipelineProfile.TabIndex = 11;
-            this.panelPipelineProfile.Visible = false;
-            // 
-            // btnPipelineProfile
-            // 
-            this.btnPipelineProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPipelineProfile.Location = new System.Drawing.Point(0, 564);
-            this.btnPipelineProfile.Name = "btnPipelineProfile";
-            this.btnPipelineProfile.Size = new System.Drawing.Size(282, 30);
-            this.btnPipelineProfile.TabIndex = 10;
-            this.btnPipelineProfile.Text = "Профиль трубопровода";
-            this.btnPipelineProfile.UseVisualStyleBackColor = true;
-            this.btnPipelineProfile.Click += new System.EventHandler(this.btnPipelineProfile_Click);
-            // 
-            // btnSetMarks
-            // 
-            this.btnSetMarks.Location = new System.Drawing.Point(52, 6);
-            this.btnSetMarks.Name = "btnSetMarks";
-            this.btnSetMarks.Size = new System.Drawing.Size(83, 53);
-            this.btnSetMarks.TabIndex = 0;
-            this.btnSetMarks.Text = "Задать отметки";
-            this.btnSetMarks.UseVisualStyleBackColor = true;
-            this.btnSetMarks.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(141, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 53);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Загрузить отметки";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -439,6 +434,7 @@ namespace PipeCalcForm
             this.Name = "MainForm";
             this.Text = "Гидравлический расчет нефтепровода";
             this.panelSideMenu.ResumeLayout(false);
+            this.panelPipelineProfile.ResumeLayout(false);
             this.panelBorderConditions.ResumeLayout(false);
             this.panelBorderConditions.PerformLayout();
             this.panelStationProperties.ResumeLayout(false);
@@ -449,7 +445,6 @@ namespace PipeCalcForm
             this.panelOilProperties.ResumeLayout(false);
             this.panelOilProperties.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartGraphic)).EndInit();
-            this.panelPipelineProfile.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

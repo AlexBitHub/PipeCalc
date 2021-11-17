@@ -53,6 +53,12 @@
     <Compile Include="AdditionForms\CoordinateAndHighMarkForm.Designer.cs">
       <DependentUpon>CoordinateAndHighMarkForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdditionForms\UserComboBoxPumps.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdditionForms\UserComboBoxPumps.Designer.cs">
+      <DependentUpon>UserComboBoxPumps.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </Compile>
     <EmbeddedResource Include="AdditionForms\CoordinateAndHighMarkForm.resx">
       <DependentUpon>CoordinateAndHighMarkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdditionForms\UserComboBoxPumps.resx">
+      <DependentUpon>UserComboBoxPumps.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

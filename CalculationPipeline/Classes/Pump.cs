@@ -8,6 +8,7 @@ namespace CalculationPipeline
 {
     public class Pump
     {
+        public string Name { get; }
         /// <summary>
         /// Coef for calculation head
         /// </summary>
