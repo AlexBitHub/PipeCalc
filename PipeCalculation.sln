@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipeCalc", "PipeCalc\PipeCalc.csproj", "{7C2FB614-97FF-4F70-BF01-80E8395604C0}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form", "..\PipeCalc with old data\Proba\Form.csproj", "{A00FDF4B-7654-44AC-A231-B9D72185C66B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipeCalcForm", "PipeCalcForm\PipeCalcForm.csproj", "{97677138-F3FA-4FC9-AC8F-A9FAA46308B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipeCalcLibrary", "PipeCalcLibrary\PipeCalcLibrary.csproj", "{2B673F7C-4A34-4705-BCA0-ACADEF52B465}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{97677138-F3FA-4FC9-AC8F-A9FAA46308B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97677138-F3FA-4FC9-AC8F-A9FAA46308B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97677138-F3FA-4FC9-AC8F-A9FAA46308B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B673F7C-4A34-4705-BCA0-ACADEF52B465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B673F7C-4A34-4705-BCA0-ACADEF52B465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B673F7C-4A34-4705-BCA0-ACADEF52B465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B673F7C-4A34-4705-BCA0-ACADEF52B465}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

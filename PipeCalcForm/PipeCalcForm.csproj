@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PipeCalcForm</RootNamespace>
     <AssemblyName>PipeCalcForm</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -91,6 +92,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="AdditionForms\UserTabPageStation.resx">
       <DependentUpon>UserTabPageStation.cs</DependentUpon>
@@ -110,9 +112,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CalculationPipeline\CalculationPipeline.csproj">
-      <Project>{be17c5b6-8cdc-4c60-bc76-5a7e1cbb4f8b}</Project>
-      <Name>CalculationPipeline</Name>
+    <ProjectReference Include="..\PipeCalcLibrary\PipeCalcLibrary.csproj">
+      <Project>{2b673f7c-4a34-4705-bca0-acadef52b465}</Project>
+      <Name>PipeCalcLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

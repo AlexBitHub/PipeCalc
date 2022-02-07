@@ -89,7 +89,7 @@ namespace PipeCalcForm
             this.columnCmbBoxMainPumps});
             this.dataGridPumps.Location = new System.Drawing.Point(5, 86);
             this.dataGridPumps.Name = "dataGridPumps";
-            this.dataGridPumps.Size = new System.Drawing.Size(247, 109);
+            this.dataGridPumps.Size = new System.Drawing.Size(266, 125);
             this.dataGridPumps.TabIndex = 24;
             // 
             // columnCmbBoxBoostPumps

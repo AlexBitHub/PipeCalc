@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using PipeCalcLibrary;
 
 namespace PipeCalcForm
 {
@@ -59,7 +60,7 @@ namespace PipeCalcForm
 
 
         /// <summary>
-        /// Add page of station if main page selected, else delete selected page
+        /// Add page of station if main page is selected, else delete selected page
         /// </summary>
         private void tabCntrStations_DoubleClick(object sender, EventArgs e)
         {
@@ -75,6 +76,8 @@ namespace PipeCalcForm
                 tabCntrStations.TabPages.Remove(tabCntrStations.SelectedTab);
             }
         }
+
+        #region Properties
 
         public double Density
         {
@@ -114,6 +117,9 @@ namespace PipeCalcForm
         {
             get { return int.Parse(txtBoxEndHigh.Text); }
         }
+
+        #endregion
+
 
         private void button2_Click(object sender, EventArgs e)
         {
