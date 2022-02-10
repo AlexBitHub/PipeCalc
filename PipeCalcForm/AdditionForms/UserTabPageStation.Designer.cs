@@ -1,5 +1,5 @@
 ﻿
-namespace PipeCalcForm
+namespace PipeCalcForm.AdditionForms
 {
     partial class UserTabPageStation
     {

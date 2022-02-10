@@ -37,22 +37,22 @@ namespace PipeCalcForm
             this.chartGraphic = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnOilProperties = new System.Windows.Forms.Button();
             this.panelOilProperties = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxDens = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtBoxViscos = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtBoxVapourPres = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBoxViscos = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBoxDens = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnPipeProperties = new System.Windows.Forms.Button();
             this.panelPipeProperties = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtBoxDiameter = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxLength = new System.Windows.Forms.TextBox();
-            this.txtBoxThickness = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtBoxRoughness = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtBoxThickness = new System.Windows.Forms.TextBox();
+            this.txtBoxLength = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtBoxDiameter = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnStationProperties = new System.Windows.Forms.Button();
             this.panelStationProperties = new System.Windows.Forms.Panel();
             this.tabCntrStations = new System.Windows.Forms.TabControl();
@@ -60,14 +60,14 @@ namespace PipeCalcForm
             this.panelMainStation = new System.Windows.Forms.Panel();
             this.btnBorderConditions = new System.Windows.Forms.Button();
             this.panelBorderConditions = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtBoxEndPressure = new System.Windows.Forms.TextBox();
-            this.txtBoxEndHigh = new System.Windows.Forms.TextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.txtBoxEndHigh = new System.Windows.Forms.TextBox();
+            this.txtBoxEndPressure = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnPipelineProfile = new System.Windows.Forms.Button();
             this.panelPipelineProfile = new System.Windows.Forms.Panel();
-            this.btnSetMarks = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.btnSetMarks = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartGraphic)).BeginInit();
@@ -100,6 +100,7 @@ namespace PipeCalcForm
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButtonPlay";
+            this.toolStripButton1.Click += new System.EventHandler(this.playCalculation);
             // 
             // toolStripLabel1
             // 
@@ -145,37 +146,12 @@ namespace PipeCalcForm
             this.panelOilProperties.TabIndex = 1;
             this.panelOilProperties.Visible = false;
             // 
-            // label1
+            // txtBoxVapourPres
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Плотность, кг/м3";
-            // 
-            // txtBoxDens
-            // 
-            this.txtBoxDens.Location = new System.Drawing.Point(170, 4);
-            this.txtBoxDens.Name = "txtBoxDens";
-            this.txtBoxDens.Size = new System.Drawing.Size(109, 23);
-            this.txtBoxDens.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Вязкость, сСт";
-            // 
-            // txtBoxViscos
-            // 
-            this.txtBoxViscos.Location = new System.Drawing.Point(170, 33);
-            this.txtBoxViscos.Name = "txtBoxViscos";
-            this.txtBoxViscos.Size = new System.Drawing.Size(109, 23);
-            this.txtBoxViscos.TabIndex = 3;
+            this.txtBoxVapourPres.Location = new System.Drawing.Point(170, 62);
+            this.txtBoxVapourPres.Name = "txtBoxVapourPres";
+            this.txtBoxVapourPres.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxVapourPres.TabIndex = 5;
             // 
             // label3
             // 
@@ -186,12 +162,37 @@ namespace PipeCalcForm
             this.label3.TabIndex = 4;
             this.label3.Text = "Упругость паров, МПа";
             // 
-            // txtBoxVapourPres
+            // txtBoxViscos
             // 
-            this.txtBoxVapourPres.Location = new System.Drawing.Point(170, 62);
-            this.txtBoxVapourPres.Name = "txtBoxVapourPres";
-            this.txtBoxVapourPres.Size = new System.Drawing.Size(109, 23);
-            this.txtBoxVapourPres.TabIndex = 5;
+            this.txtBoxViscos.Location = new System.Drawing.Point(170, 33);
+            this.txtBoxViscos.Name = "txtBoxViscos";
+            this.txtBoxViscos.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxViscos.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Вязкость, сСт";
+            // 
+            // txtBoxDens
+            // 
+            this.txtBoxDens.Location = new System.Drawing.Point(170, 4);
+            this.txtBoxDens.Name = "txtBoxDens";
+            this.txtBoxDens.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxDens.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Плотность, кг/м3";
             // 
             // btnPipeProperties
             // 
@@ -222,44 +223,21 @@ namespace PipeCalcForm
             this.panelPipeProperties.TabIndex = 3;
             this.panelPipeProperties.Visible = false;
             // 
-            // label4
+            // txtBoxRoughness
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Диаметр, м";
+            this.txtBoxRoughness.Location = new System.Drawing.Point(170, 93);
+            this.txtBoxRoughness.Name = "txtBoxRoughness";
+            this.txtBoxRoughness.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxRoughness.TabIndex = 10;
             // 
-            // txtBoxDiameter
+            // label6
             // 
-            this.txtBoxDiameter.Location = new System.Drawing.Point(170, 6);
-            this.txtBoxDiameter.Name = "txtBoxDiameter";
-            this.txtBoxDiameter.Size = new System.Drawing.Size(109, 23);
-            this.txtBoxDiameter.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 36);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Протяженность, км";
-            // 
-            // txtBoxLength
-            // 
-            this.txtBoxLength.Location = new System.Drawing.Point(170, 35);
-            this.txtBoxLength.Name = "txtBoxLength";
-            this.txtBoxLength.Size = new System.Drawing.Size(109, 23);
-            this.txtBoxLength.TabIndex = 5;
-            // 
-            // txtBoxThickness
-            // 
-            this.txtBoxThickness.Location = new System.Drawing.Point(170, 64);
-            this.txtBoxThickness.Name = "txtBoxThickness";
-            this.txtBoxThickness.Size = new System.Drawing.Size(109, 23);
-            this.txtBoxThickness.TabIndex = 7;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 96);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 17);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Шероховатость, мм";
             // 
             // richTextBox1
             // 
@@ -271,21 +249,44 @@ namespace PipeCalcForm
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "Толщина стенки трубы, м";
             // 
-            // label6
+            // txtBoxThickness
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 96);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 17);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Шероховатость, мм";
+            this.txtBoxThickness.Location = new System.Drawing.Point(170, 64);
+            this.txtBoxThickness.Name = "txtBoxThickness";
+            this.txtBoxThickness.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxThickness.TabIndex = 7;
             // 
-            // txtBoxRoughness
+            // txtBoxLength
             // 
-            this.txtBoxRoughness.Location = new System.Drawing.Point(170, 93);
-            this.txtBoxRoughness.Name = "txtBoxRoughness";
-            this.txtBoxRoughness.Size = new System.Drawing.Size(109, 23);
-            this.txtBoxRoughness.TabIndex = 10;
+            this.txtBoxLength.Location = new System.Drawing.Point(170, 35);
+            this.txtBoxLength.Name = "txtBoxLength";
+            this.txtBoxLength.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxLength.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 17);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Протяженность, км";
+            // 
+            // txtBoxDiameter
+            // 
+            this.txtBoxDiameter.Location = new System.Drawing.Point(170, 6);
+            this.txtBoxDiameter.Name = "txtBoxDiameter";
+            this.txtBoxDiameter.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxDiameter.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Диаметр, м";
             // 
             // btnStationProperties
             // 
@@ -363,29 +364,6 @@ namespace PipeCalcForm
             this.panelBorderConditions.TabIndex = 9;
             this.panelBorderConditions.Visible = false;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 17);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Конечный напор, м";
-            // 
-            // txtBoxEndPressure
-            // 
-            this.txtBoxEndPressure.Location = new System.Drawing.Point(170, 6);
-            this.txtBoxEndPressure.Name = "txtBoxEndPressure";
-            this.txtBoxEndPressure.Size = new System.Drawing.Size(109, 23);
-            this.txtBoxEndPressure.TabIndex = 3;
-            // 
-            // txtBoxEndHigh
-            // 
-            this.txtBoxEndHigh.Location = new System.Drawing.Point(170, 37);
-            this.txtBoxEndHigh.Name = "txtBoxEndHigh";
-            this.txtBoxEndHigh.Size = new System.Drawing.Size(109, 23);
-            this.txtBoxEndHigh.TabIndex = 5;
-            // 
             // richTextBox2
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.Silver;
@@ -395,6 +373,29 @@ namespace PipeCalcForm
             this.richTextBox2.Size = new System.Drawing.Size(136, 38);
             this.richTextBox2.TabIndex = 8;
             this.richTextBox2.Text = "Конечная высотная отметка, м";
+            // 
+            // txtBoxEndHigh
+            // 
+            this.txtBoxEndHigh.Location = new System.Drawing.Point(170, 37);
+            this.txtBoxEndHigh.Name = "txtBoxEndHigh";
+            this.txtBoxEndHigh.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxEndHigh.TabIndex = 5;
+            // 
+            // txtBoxEndPressure
+            // 
+            this.txtBoxEndPressure.Location = new System.Drawing.Point(170, 6);
+            this.txtBoxEndPressure.Name = "txtBoxEndPressure";
+            this.txtBoxEndPressure.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxEndPressure.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 17);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Конечный напор, м";
             // 
             // btnPipelineProfile
             // 
@@ -419,6 +420,15 @@ namespace PipeCalcForm
             this.panelPipelineProfile.TabIndex = 11;
             this.panelPipelineProfile.Visible = false;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(141, 6);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(84, 53);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Загрузить отметки";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // btnSetMarks
             // 
             this.btnSetMarks.Location = new System.Drawing.Point(52, 6);
@@ -428,15 +438,6 @@ namespace PipeCalcForm
             this.btnSetMarks.Text = "Задать отметки";
             this.btnSetMarks.UseVisualStyleBackColor = true;
             this.btnSetMarks.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(141, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 53);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Загрузить отметки";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // panelSideMenu
             // 

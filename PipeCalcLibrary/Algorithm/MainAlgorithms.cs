@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PipeCalcLibrary.Classes;
 
 
 namespace PipeCalcLibrary
@@ -68,7 +69,7 @@ namespace PipeCalcLibrary
             if (Head > NPS_Pipe.pipe.MaxPressure)
                 TextMessage += $"Outlet pressure on station {NPS_Pipe.station.Name} is exceeded\n";
             Head = Head - NPS_Pipe.station.GetDiffPresure(Q);
-            if (Head < NPS_Pipe.station.HighMark + NPS_Pipe.station.CavitationPressure)
+            if (Head < NPS_Pipe.station.PositionStation.High_mark + NPS_Pipe.station.CavitationPressure)
                 TextMessage += $"Inlet pressure on station {NPS_Pipe.station.Name} is too small\n";
             HeadArray.Append(Head);
             EndPressure = Head;
@@ -100,7 +101,7 @@ namespace PipeCalcLibrary
                     //sector.pipe.EndPressure = PressureInEnd;
                     IterationAlgorithm(sector, oil, headArray, Speed, ref PressureInEnd, out string TextMess); // declare "TextMess"
                 }
-                delta = PressureInEnd - ArraySectors.head.Data.station.HighMark; // How much does ZSpot of station match with last values of pressure
+                delta = PressureInEnd - ArraySectors.head.Data.station.PositionStation.High_mark; // How much does ZSpot of station match with last values of pressure
                 (SpeedPrev, HeadPrev, SpeedCurr, HeadCurr) = (SpeedCurr, HeadCurr, Speed, delta);
             }
         }

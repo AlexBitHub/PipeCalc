@@ -4,21 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PipeCalcLibrary
+namespace PipeCalcLibrary.Classes
 {
     public class Station
     {
         public string Name { get; set; }
 
-        /// <summary>
-        /// High mark of station (meters)
-        /// </summary>
-        public double HighMark { get; set; }
+        //public double HighMark { get; set; }
 
-        /// <summary>
-        /// Coordinate of station (km)
-        /// </summary>
-        public double Coordinate { get; set; }
+        //public double Coordinate { get; set; }
+        public Mark PositionStation { get; set; }
 
         /// <summary>
         /// All pumps at the station
@@ -30,11 +25,10 @@ namespace PipeCalcLibrary
         /// </summary>
         public double CavitationPressure { get; set; }
         
-        public Station(string name, double highSpot, double coordinate, List<Pump> pumps)
+        public Station(string name, Mark pos, List<Pump> pumps)
         {
             Name = name;
-            HighMark = highSpot;
-            Coordinate = coordinate;
+            PositionStation = pos;
             Pumps = pumps;
             CavitationPressure = (from p in pumps select p.CavitationParam).Min(); //cavitation pressure is minimal cavitaion reserve all pumps
         }
@@ -52,7 +46,7 @@ namespace PipeCalcLibrary
         /// </summary>
         public double GetFullPressure(double Q)
         {
-            return GetDiffPresure(Q) + HighMark;
+            return GetDiffPresure(Q) + PositionStation.High_mark;
         }
     }
 }

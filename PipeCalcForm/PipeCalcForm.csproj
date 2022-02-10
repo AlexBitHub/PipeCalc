@@ -54,6 +54,12 @@
     <Compile Include="AdditionForms\CoordinateAndHighMarkForm.Designer.cs">
       <DependentUpon>CoordinateAndHighMarkForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdditionForms\StationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdditionForms\StationsForm.Designer.cs">
+      <DependentUpon>StationsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdditionForms\UserComboBoxPumps.cs">
       <SubType>UserControl</SubType>
     </Compile>

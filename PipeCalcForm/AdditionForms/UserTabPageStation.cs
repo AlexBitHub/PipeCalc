@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PipeCalcForm.AdditionForms;
-using PipeCalcLibrary;
+using PipeCalcLibrary.Classes;
 
 
-namespace PipeCalcForm
+namespace PipeCalcForm.AdditionForms
 {
     public partial class UserTabPageStation : UserControl
     {

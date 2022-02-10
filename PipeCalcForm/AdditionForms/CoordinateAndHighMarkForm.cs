@@ -7,36 +7,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PipeCalcLibrary.Classes;
 
-namespace PipeCalcForm
+namespace PipeCalcForm.AdditionForms
 {
     public partial class CoordinateAndHighMarkForm : Form
     {
+        public List<Mark> marksList = new List<Mark>();
+        BindingList<Mark> bindingMarks; 
+
+        MainForm owner;
         public CoordinateAndHighMarkForm()
         {
             InitializeComponent();
-            IList<int> X_Spots = new List<int>(Enumerable.Range(0, 121)).Where(x => x % 5 == 0).ToList();
-            IList<int> Z_Spots = new List<int>();
-            for (int i = 0; i < X_Spots.Count; i++)
+        }
+
+        private void CoordinateAndHighMarkForm_Shown(object sender, EventArgs e)
+        {
+            owner = this.Owner as MainForm;
+            var lengthPipe = (int)Math.Floor(owner.LengthPipeline);
+
+            if(marksList == null) // если запускаем первый раз окно (т.е.массив с координатами пустой) подготовливаем все координаты
             {
-                Z_Spots.Add(new Random().Next(35, 55));
+                marksList = new List<int>(Enumerable.Range(0, lengthPipe)).Where(x => x % 5 == 0).Select(x => new Mark(x)).ToList();
+                marksList.Add(new Mark(owner.LengthPipeline, owner.EndHighMark));                              
             }
+            bindingMarks = new BindingList<Mark>(marksList);
+            var source = new BindingSource(bindingMarks, null);
+            dataGridXandZ.DataSource = source;
+            //dataGridXandZ.Rows[marksList.Count - 1].Frozen = true;
+            //dataGridXandZ.Columns[0].Name = "Коодината, км";
+            //dataGridXandZ.Columns[1].Name = "Высотная отметка, м";
+        }
 
-
-            var source = new BindingSource();
-
-            DataTable tab = new DataTable();
-            tab.Columns.Add("Координата, км", typeof(double));
-            tab.Columns.Add("Высотная отметка, м", typeof(double));
-            
-            for (int i = 0; i < X_Spots.Count; i++)
-            {
-                tab.Rows.Add(X_Spots[i], Z_Spots[i]);
+        private void buttonRandHigMarks_Click(object sender, EventArgs e)
+        {
+            var z_Rand = new Random();
+            for (int i = 0; i < marksList.Count; i++)
+            {                
+                marksList[i].High_mark = z_Rand.Next(35, 55);
             }
-
-            dataGridXandZ.DataSource = tab;
-
-            tab.Rows.Add(200, 100);
+            dataGridXandZ.Refresh();
         }
     }
 }

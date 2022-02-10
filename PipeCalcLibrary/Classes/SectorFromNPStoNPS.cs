@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PipeCalcLibrary
+namespace PipeCalcLibrary.Classes
 {
     public class SectorFromNPStoNPS
     {
@@ -21,10 +21,10 @@ namespace PipeCalcLibrary
         }
         public void GetListPoints()
         {
-            X_SpotsSector = (from x in pipe.XSpots
-                             where x >= station.Coordinate && x <= EndPoint
-                             select x).ToList();
-            Z_SpotsSector = pipe.XSpots.Where(x => x >= station.Coordinate && x <= EndPoint).Select((x, i) => pipe.HighSpots[i]).ToList();
+            X_SpotsSector = (from x in pipe.XZ_marks
+                             where x.Coord_mark >= station.PositionStation.Coord_mark && x.Coord_mark <= EndPoint
+                             select x.Coord_mark).ToList();
+            Z_SpotsSector = pipe.XZ_marks.Where(x => x.Coord_mark >= station.PositionStation.Coord_mark && x.Coord_mark <= EndPoint).Select((x, i) => pipe.XZ_marks[i].High_mark).ToList();
 
             //X_SpotsSector = (from x in pipe.HighAndCoordSpots.Keys
             //                where x >= station.Coordinate && x <= EndPoint
@@ -65,7 +65,7 @@ namespace PipeCalcLibrary
             else
             {
                 tail.Next = node;
-                tail.Data.EndPoint = node.Data.station.Coordinate; // Last station gets new end point, that's coordinate new station.
+                tail.Data.EndPoint = node.Data.station.PositionStation.Coord_mark; // Last station gets new end point, that's coordinate new station.
                 tail.Data.GetListPoints();
             }
             tail = node; // last node is new station
@@ -134,7 +134,7 @@ namespace PipeCalcLibrary
             }
             if (count != 0)
             {
-                head.Data.EndPoint = node.Data.station.Coordinate; // head changes EndPoint to endPoint new element
+                head.Data.EndPoint = node.Data.station.PositionStation.Coord_mark; // head changes EndPoint to endPoint new element
                 head.Data.GetListPoints();
             }
 
