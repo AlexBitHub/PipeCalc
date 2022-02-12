@@ -15,6 +15,14 @@ namespace PipeCalcForm.AdditionForms
 {
     public partial class UserTabPageStation : UserControl
     {
+        public Mark StationPosition
+        {
+            get
+            {
+                return new Mark(double.Parse(txtBoxCoordinate.Text), double.Parse(txtBoxHighMark.Text));
+            }
+        }
+
         public UserTabPageStation()
         {
             InitializeComponent();
@@ -33,31 +41,17 @@ namespace PipeCalcForm.AdditionForms
 
             columnCmbBoxMainPumps.DataSource = mainPumpsSource;
             columnCmbBoxMainPumps.DisplayMember = "Name";
-            
-            //UserComboBoxPumps newCombo = new UserComboBoxPumps();
-
-            //DataGridViewComboBoxColumn columnCmbBoxBoostPumps = new DataGridViewComboBoxColumn();
-            //columnCmbBoxBoostPumps.HeaderText = "Подпорные";
-            //columnCmbBoxBoostPumps.Items.Add(" ");
-            //columnCmbBoxBoostPumps.Items.Add("Pump1");
-            //dataGridPumps.Columns.Add(columnCmbBoxBoostPumps);
-
-            //DataGridViewComboBoxColumn columnCmbBoxMainPumps = new DataGridViewComboBoxColumn();
-            //columnCmbBoxMainPumps.HeaderText = "Магистральные";
-            //columnCmbBoxMainPumps.Items.Add(" ");
-            //columnCmbBoxMainPumps.Items.Add("Pump1");
-            //dataGridPumps.Columns.Add(columnCmbBoxMainPumps);
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public List<Pump> pumpsOfStation()
         {
-            
-        }
-
-        private void AddComboBox(ComboBox sender)
-        {
-            UserComboBoxPumps newCombo = new UserComboBoxPumps();
-            newCombo.Location = new Point(sender.Location.X, sender.Location.Y + sender.Height);
+            var listPumps = new List<Pump>();
+            var pumps = columnCmbBoxBoostPumps.Items;
+            foreach (var p in pumps)
+            {
+                listPumps.Add(p as Pump);
+            }
+            return listPumps;
         }
     }
 }

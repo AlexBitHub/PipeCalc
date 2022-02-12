@@ -103,11 +103,6 @@ namespace PipeCalcForm
         public MainForm()
         {
             InitializeComponent();
-            UserTabPageStation utpStation = new UserTabPageStation();
-            
-            utpStation.Dock = DockStyle.Fill;
-            panelMainStation.Controls.Add(utpStation);
-            //tabPageMainStation.Controls.Add(utpStation);
             chartGraphic.ChartAreas.Add(new ChartArea("Example function"));
 
             Series mySeriesPoint = new Series("Example");
@@ -120,39 +115,28 @@ namespace PipeCalcForm
             chartGraphic.Series.Add(mySeriesPoint);
         }          
 
-
-
-        /// <summary>
-        /// Add page of station if main page is selected, else delete selected page
-        /// </summary>
-        private void tabCntrStations_DoubleClick(object sender, EventArgs e)
+        private void playCalculation(object sender, EventArgs e)
         {
-            if (tabCntrStations.SelectedIndex == 0)
-            {
-                UserTabPageStation newUserTabStation = new UserTabPageStation();
-                TabPage newTabPageStation = new TabPage($"ПНПС {tabCntrStations.TabPages.Count}");
-                newTabPageStation.Controls.Add(newUserTabStation);
-                tabCntrStations.TabPages.Add(newTabPageStation);
-            }
-            else
-            {
-                tabCntrStations.TabPages.Remove(tabCntrStations.SelectedTab);
-            }
-        }     
+            /// расчет
+        }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonSetStations_Click(object sender, EventArgs e)
         {
-            CoordinateAndHighMarkForm coordinateAndHighMarkForm = new CoordinateAndHighMarkForm();
+            StationsForm statForm = new StationsForm();
+            if (statForm.ShowDialog(this) == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void btnSetMarks_Click(object sender, EventArgs e)
+        {
+            CoordinateAndHighMarkForm coordinateAndHighMarkForm = new CoordinateAndHighMarkForm(LengthPipeline, EndHighMark);
             coordinateAndHighMarkForm.marksList = zxMarks;
             if (coordinateAndHighMarkForm.ShowDialog(this) == DialogResult.OK)
             {
                 zxMarks = coordinateAndHighMarkForm.marksList;
             }
-        }
-
-        private void playCalculation(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipeCalc", "PipeCalc\PipeCa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculationPipeline", "CalculationPipeline\CalculationPipeline.csproj", "{BE17C5B6-8CDC-4C60-BC76-5A7E1CBB4F8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form", "..\PipeCalc with old data\Proba\Form.csproj", "{A00FDF4B-7654-44AC-A231-B9D72185C66B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipeCalcForm", "PipeCalcForm\PipeCalcForm.csproj", "{97677138-F3FA-4FC9-AC8F-A9FAA46308B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipeCalcLibrary", "PipeCalcLibrary\PipeCalcLibrary.csproj", "{2B673F7C-4A34-4705-BCA0-ACADEF52B465}"
@@ -27,10 +25,6 @@ Global
 		{BE17C5B6-8CDC-4C60-BC76-5A7E1CBB4F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE17C5B6-8CDC-4C60-BC76-5A7E1CBB4F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE17C5B6-8CDC-4C60-BC76-5A7E1CBB4F8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A00FDF4B-7654-44AC-A231-B9D72185C66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A00FDF4B-7654-44AC-A231-B9D72185C66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A00FDF4B-7654-44AC-A231-B9D72185C66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A00FDF4B-7654-44AC-A231-B9D72185C66B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97677138-F3FA-4FC9-AC8F-A9FAA46308B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97677138-F3FA-4FC9-AC8F-A9FAA46308B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97677138-F3FA-4FC9-AC8F-A9FAA46308B6}.Release|Any CPU.ActiveCfg = Release|Any CPU

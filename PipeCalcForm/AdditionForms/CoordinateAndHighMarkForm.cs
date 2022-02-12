@@ -14,30 +14,30 @@ namespace PipeCalcForm.AdditionForms
     public partial class CoordinateAndHighMarkForm : Form
     {
         public List<Mark> marksList = new List<Mark>();
-        BindingList<Mark> bindingMarks; 
+        BindingList<Mark> bindingMarks;
+        double _lengthPipe;
+        double _endHigh;
 
-        MainForm owner;
-        public CoordinateAndHighMarkForm()
+        public CoordinateAndHighMarkForm(double length, double endHigh)
         {
             InitializeComponent();
+            _lengthPipe = length;
+            _endHigh = endHigh;
         }
 
         private void CoordinateAndHighMarkForm_Shown(object sender, EventArgs e)
         {
-            owner = this.Owner as MainForm;
-            var lengthPipe = (int)Math.Floor(owner.LengthPipeline);
+            var lengthPipe = (int)Math.Floor(_lengthPipe);
 
             if(marksList == null) // если запускаем первый раз окно (т.е.массив с координатами пустой) подготовливаем все координаты
             {
                 marksList = new List<int>(Enumerable.Range(0, lengthPipe)).Where(x => x % 5 == 0).Select(x => new Mark(x)).ToList();
-                marksList.Add(new Mark(owner.LengthPipeline, owner.EndHighMark));                              
+                marksList.Add(new Mark(_lengthPipe, _endHigh));                              
             }
             bindingMarks = new BindingList<Mark>(marksList);
             var source = new BindingSource(bindingMarks, null);
             dataGridXandZ.DataSource = source;
             //dataGridXandZ.Rows[marksList.Count - 1].Frozen = true;
-            //dataGridXandZ.Columns[0].Name = "Коодината, км";
-            //dataGridXandZ.Columns[1].Name = "Высотная отметка, м";
         }
 
         private void buttonRandHigMarks_Click(object sender, EventArgs e)

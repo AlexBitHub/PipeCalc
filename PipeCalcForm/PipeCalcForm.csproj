@@ -84,6 +84,9 @@
     <EmbeddedResource Include="AdditionForms\CoordinateAndHighMarkForm.resx">
       <DependentUpon>CoordinateAndHighMarkForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdditionForms\StationsForm.resx">
+      <DependentUpon>StationsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdditionForms\UserComboBoxPumps.resx">
       <DependentUpon>UserComboBoxPumps.cs</DependentUpon>
     </EmbeddedResource>

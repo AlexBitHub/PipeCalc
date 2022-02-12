@@ -33,17 +33,20 @@ namespace PipeCalcForm.AdditionForms
             this.txtBoxHighMark = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBoxCoordinate = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridPumps = new System.Windows.Forms.DataGridView();
             this.columnCmbBoxBoostPumps = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.columnCmbBoxMainPumps = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPumps)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 37);
+            this.label2.Location = new System.Drawing.Point(27, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 19;
@@ -51,7 +54,7 @@ namespace PipeCalcForm.AdditionForms
             // 
             // txtBoxHighMark
             // 
-            this.txtBoxHighMark.Location = new System.Drawing.Point(152, 34);
+            this.txtBoxHighMark.Location = new System.Drawing.Point(184, 40);
             this.txtBoxHighMark.Name = "txtBoxHighMark";
             this.txtBoxHighMark.Size = new System.Drawing.Size(100, 20);
             this.txtBoxHighMark.TabIndex = 18;
@@ -59,7 +62,7 @@ namespace PipeCalcForm.AdditionForms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(27, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 17;
@@ -67,30 +70,45 @@ namespace PipeCalcForm.AdditionForms
             // 
             // txtBoxCoordinate
             // 
-            this.txtBoxCoordinate.Location = new System.Drawing.Point(152, 5);
+            this.txtBoxCoordinate.Location = new System.Drawing.Point(184, 11);
             this.txtBoxCoordinate.Name = "txtBoxCoordinate";
             this.txtBoxCoordinate.Size = new System.Drawing.Size(100, 20);
             this.txtBoxCoordinate.TabIndex = 16;
             // 
-            // label3
+            // panel1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(109, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Насосы";
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.txtBoxCoordinate);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txtBoxHighMark);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(310, 98);
+            this.panel1.TabIndex = 25;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dataGridPumps);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 98);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(310, 161);
+            this.panel2.TabIndex = 26;
             // 
             // dataGridPumps
             // 
+            this.dataGridPumps.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridPumps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPumps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnCmbBoxBoostPumps,
             this.columnCmbBoxMainPumps});
-            this.dataGridPumps.Location = new System.Drawing.Point(5, 86);
+            this.dataGridPumps.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridPumps.Location = new System.Drawing.Point(0, 0);
             this.dataGridPumps.Name = "dataGridPumps";
-            this.dataGridPumps.Size = new System.Drawing.Size(266, 125);
-            this.dataGridPumps.TabIndex = 24;
+            this.dataGridPumps.Size = new System.Drawing.Size(310, 161);
+            this.dataGridPumps.TabIndex = 25;
             // 
             // columnCmbBoxBoostPumps
             // 
@@ -110,17 +128,15 @@ namespace PipeCalcForm.AdditionForms
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
-            this.Controls.Add(this.dataGridPumps);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtBoxHighMark);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtBoxCoordinate);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "UserTabPageStation";
-            this.Size = new System.Drawing.Size(274, 224);
+            this.Size = new System.Drawing.Size(310, 259);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPumps)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -130,7 +146,8 @@ namespace PipeCalcForm.AdditionForms
         private System.Windows.Forms.TextBox txtBoxHighMark;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBoxCoordinate;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridPumps;
         private System.Windows.Forms.DataGridViewComboBoxColumn columnCmbBoxBoostPumps;
         private System.Windows.Forms.DataGridViewComboBoxColumn columnCmbBoxMainPumps;
