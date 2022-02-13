@@ -36,8 +36,8 @@ namespace PipeCalcForm.AdditionForms
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridPumps = new System.Windows.Forms.DataGridView();
-            this.columnCmbBoxBoostPumps = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.columnCmbBoxMainPumps = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.columnCmbBoxPumps = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.columnCmbBoxNothing = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPumps)).BeginInit();
@@ -102,27 +102,27 @@ namespace PipeCalcForm.AdditionForms
             this.dataGridPumps.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridPumps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPumps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnCmbBoxBoostPumps,
-            this.columnCmbBoxMainPumps});
+            this.columnCmbBoxPumps,
+            this.columnCmbBoxNothing});
             this.dataGridPumps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridPumps.Location = new System.Drawing.Point(0, 0);
             this.dataGridPumps.Name = "dataGridPumps";
             this.dataGridPumps.Size = new System.Drawing.Size(310, 161);
             this.dataGridPumps.TabIndex = 25;
             // 
-            // columnCmbBoxBoostPumps
+            // columnCmbBoxPumps
             // 
-            this.columnCmbBoxBoostPumps.HeaderText = "Подпорные";
-            this.columnCmbBoxBoostPumps.Name = "columnCmbBoxBoostPumps";
-            this.columnCmbBoxBoostPumps.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.columnCmbBoxBoostPumps.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.columnCmbBoxPumps.HeaderText = "Насосы";
+            this.columnCmbBoxPumps.Name = "columnCmbBoxPumps";
+            this.columnCmbBoxPumps.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.columnCmbBoxPumps.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // columnCmbBoxMainPumps
+            // columnCmbBoxNothing
             // 
-            this.columnCmbBoxMainPumps.HeaderText = "Магистральные";
-            this.columnCmbBoxMainPumps.Name = "columnCmbBoxMainPumps";
-            this.columnCmbBoxMainPumps.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.columnCmbBoxMainPumps.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.columnCmbBoxNothing.HeaderText = "ничего";
+            this.columnCmbBoxNothing.Name = "columnCmbBoxNothing";
+            this.columnCmbBoxNothing.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.columnCmbBoxNothing.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // UserTabPageStation
             // 
@@ -149,7 +149,7 @@ namespace PipeCalcForm.AdditionForms
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridPumps;
-        private System.Windows.Forms.DataGridViewComboBoxColumn columnCmbBoxBoostPumps;
-        private System.Windows.Forms.DataGridViewComboBoxColumn columnCmbBoxMainPumps;
+        private System.Windows.Forms.DataGridViewComboBoxColumn columnCmbBoxPumps;
+        private System.Windows.Forms.DataGridViewComboBoxColumn columnCmbBoxNothing;
     }
 }

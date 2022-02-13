@@ -8,25 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PipeCalcLibrary.Classes;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace PipeCalcForm.AdditionForms
 {
     public partial class StationsForm : Form
     {
         public List<Station> stations = new List<Station>();
+        private List<Pump> _pumpsFromStore;
         public StationsForm()
         {
             InitializeComponent();
-            UserTabPageStation tabPageStation = new UserTabPageStation();
-            tabPageStation.Dock = DockStyle.Fill;
-            panelMainSt.Controls.Add(tabPageStation);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(XmlPump[]));
+
+            using (FileStream fsB = new FileStream("BoostPumps.xml", FileMode.OpenOrCreate))
+            {
+                _pumpsFromStore = ((XmlPump[])xmlSerializer.Deserialize(fsB)).Select(p => p.GetRealPump()).ToList();
+            }
+            if (stations.Count != 0)
+            {
+                foreach (var st in stations)
+                {
+
+                }
+            }
+            else
+            {
+                StationPage mainStation = new StationPage("МНПС", _pumpsFromStore);
+                tabControl1.Controls.Add(mainStation);
+            }
+            
         }
 
         private void tabControl1_DoubleClick(object sender, EventArgs e)
         {
             if (tabControl1.SelectedIndex == 0)
             {
-                StationPage stationPage = new StationPage($"НПС {tabControl1.TabCount}");
+                StationPage stationPage = new StationPage($"НПС {tabControl1.TabCount}",
+                                                          _pumpsFromStore);
                 tabControl1.Controls.Add(stationPage);
             }
             else
@@ -44,10 +64,13 @@ namespace PipeCalcForm.AdditionForms
         class StationPage : TabPage
         {
             Panel panelStation = new Panel();
-            UserTabPageStation newTabStation = new UserTabPageStation();
+            UserTabPageStation newTabStation;
             string nameStation;
-            public StationPage(string textPage) : base(textPage)
+            List<Pump> selectedPumps;
+            public StationPage(string textPage, List<Pump> pumps) : base(textPage)
             {
+                newTabStation = new UserTabPageStation(pumps);
+                newTabStation.selectedPumps = selectedPumps;
                 nameStation = textPage;
                 panelStation.Dock = DockStyle.Fill;
                 newTabStation.Dock = DockStyle.Fill;
@@ -58,9 +81,10 @@ namespace PipeCalcForm.AdditionForms
 
             public Station GetStation()
             {
-                Station st = new Station(nameStation, newTabStation.StationPosition, newTabStation.pumpsOfStation());
+                Station st = new Station(nameStation, newTabStation.StationPosition, newTabStation.getPumpsOfStation());
                 return st;
             }
         }
+      
     }
 }

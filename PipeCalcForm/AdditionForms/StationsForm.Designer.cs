@@ -28,40 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabPageMainSt = new System.Windows.Forms.TabPage();
-            this.panelMainSt = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.tabPageMainSt.SuspendLayout();
-            this.tabControl1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabPageMainSt
-            // 
-            this.tabPageMainSt.AutoScroll = true;
-            this.tabPageMainSt.Controls.Add(this.panelMainSt);
-            this.tabPageMainSt.Location = new System.Drawing.Point(4, 22);
-            this.tabPageMainSt.Name = "tabPageMainSt";
-            this.tabPageMainSt.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMainSt.Size = new System.Drawing.Size(339, 225);
-            this.tabPageMainSt.TabIndex = 0;
-            this.tabPageMainSt.Text = "МНПС";
-            this.tabPageMainSt.UseVisualStyleBackColor = true;
-            // 
-            // panelMainSt
-            // 
-            this.panelMainSt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainSt.Location = new System.Drawing.Point(3, 3);
-            this.panelMainSt.Name = "panelMainSt";
-            this.panelMainSt.Size = new System.Drawing.Size(333, 219);
-            this.panelMainSt.TabIndex = 0;
-            // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPageMainSt);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControl1.Location = new System.Drawing.Point(-3, 3);
             this.tabControl1.Name = "tabControl1";
@@ -115,8 +90,6 @@
             this.MinimumSize = new System.Drawing.Size(363, 326);
             this.Name = "StationsForm";
             this.Text = "StationsForm";
-            this.tabPageMainSt.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -124,8 +97,6 @@
 
         #endregion
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPageMainSt;
-        private System.Windows.Forms.Panel panelMainSt;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

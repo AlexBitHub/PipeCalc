@@ -67,7 +67,8 @@ namespace PipeCalcForm
         }
 
         #endregion
-        public List<Mark> zxMarks { get; set; }
+        public List<Mark> ZXMarks { get; set; }
+        public List<Station> Stations { get; set; }
         //public List<int> X_Marks { get; set; }
         //public List<double> Z_Marks { get; set; }
 
@@ -123,6 +124,7 @@ namespace PipeCalcForm
         private void buttonSetStations_Click(object sender, EventArgs e)
         {
             StationsForm statForm = new StationsForm();
+            statForm.stations = Stations;
             if (statForm.ShowDialog(this) == DialogResult.OK)
             {
 
@@ -132,10 +134,10 @@ namespace PipeCalcForm
         private void btnSetMarks_Click(object sender, EventArgs e)
         {
             CoordinateAndHighMarkForm coordinateAndHighMarkForm = new CoordinateAndHighMarkForm(LengthPipeline, EndHighMark);
-            coordinateAndHighMarkForm.marksList = zxMarks;
+            coordinateAndHighMarkForm.marksList = ZXMarks;
             if (coordinateAndHighMarkForm.ShowDialog(this) == DialogResult.OK)
             {
-                zxMarks = coordinateAndHighMarkForm.marksList;
+                ZXMarks = coordinateAndHighMarkForm.marksList;
             }
         }
     }
