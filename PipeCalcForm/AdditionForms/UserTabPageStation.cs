@@ -19,36 +19,50 @@ namespace PipeCalcForm.AdditionForms
         {
             get
             {
-                return new Mark(double.Parse(txtBoxCoordinate.Text ?? "0"), double.Parse(txtBoxHighMark.Text ?? "0"));
+                return new Mark(double.Parse(txtBoxCoordinate.Text == "" ? "0" : txtBoxCoordinate.Text), 
+                                double.Parse(txtBoxHighMark.Text == "" ? "0" : txtBoxHighMark.Text));
             }
             set
             {
-                txtBoxCoordinate.Text = value.Coord_mark.ToString();
-                txtBoxHighMark.Text = value.High_mark.ToString();
+                if (value != null)
+                {
+                    txtBoxCoordinate.Text = value.Coord_mark.ToString();
+                    txtBoxHighMark.Text = value.High_mark.ToString();
+                }                
             }
         }
 
-        public List<Pump> selectedPumps { get; set; } = new List<Pump>();
+        public List<Pump> pumpsStore { get; set; } = new List<Pump>();
 
-        public UserTabPageStation(List<Pump> pumpsStore)
+        public UserTabPageStation(List<Pump> SelectedPumps, List<Pump> pumpsStore)
         {
             InitializeComponent();
-
+            this.pumpsStore = pumpsStore;
             columnCmbBoxPumps.DataSource = pumpsStore;
-            BindingList<Pump> bindL = new BindingList<Pump>(selectedPumps);
-            BindingSource source = new BindingSource(bindL, null);
-            dataGridPumps.DataSource = source;
+
             columnCmbBoxPumps.DisplayMember = "Name";
+            columnCmbBoxPumps.ValueMember = "Name";
+            if (SelectedPumps != null)
+            {
+                dataGridPumps.Rows.Add(SelectedPumps.Count);
+                for (int i = 0; i < dataGridPumps.Rows.Count - 1; i++)
+                {
+                    dataGridPumps.Rows[i].Cells[0].Value = SelectedPumps[i].Name;
+                }
+            }
+            
         }
 
-        public List<Pump> getPumpsOfStation()
+        public List<Pump> GetPumpsOfStation()
         {
             var listPumps = new List<Pump>();
-            
-            var boostPumps = columnCmbBoxPumps.Items;
-            foreach (var bp in boostPumps)
+
+            for (int i = 0; i < dataGridPumps.Rows.Count; i++)
             {
-                listPumps.Add(bp as Pump);
+                Pump selectPump = pumpsStore.Where(p => p.Name == dataGridPumps.Rows[i].Cells[0].Value as string).FirstOrDefault();
+                if (selectPump == null)
+                    continue;
+                listPumps.Add(selectPump);
             }
             return listPumps;
         }

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithm\CalcExecution.cs" />
     <Compile Include="Algorithm\MainAlgorithms.cs" />
     <Compile Include="Classes\Mark.cs" />
     <Compile Include="Classes\Oil.cs" />

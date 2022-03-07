@@ -24,16 +24,9 @@ namespace PipeCalcLibrary.Classes
             X_SpotsSector = (from x in pipe.XZ_marks
                              where x.Coord_mark >= station.PositionStation.Coord_mark && x.Coord_mark <= EndPoint
                              select x.Coord_mark).ToList();
-            Z_SpotsSector = pipe.XZ_marks.Where(x => x.Coord_mark >= station.PositionStation.Coord_mark && x.Coord_mark <= EndPoint).Select((x, i) => pipe.XZ_marks[i].High_mark).ToList();
-
-            //X_SpotsSector = (from x in pipe.HighAndCoordSpots.Keys
-            //                where x >= station.Coordinate && x <= EndPoint
-            //                select x).ToList();
-            //Z_SpotsSector = (from x in pipe.HighAndCoordSpots
-            //                 where x.Key >= station.Coordinate && x.Key <= EndPoint
-            //                 select x.Value).ToList();
+            Z_SpotsSector = pipe.XZ_marks.Where(x => x.Coord_mark >= station.PositionStation.Coord_mark && x.Coord_mark <= EndPoint).
+                            Select((x, i) => pipe.XZ_marks[i].High_mark).ToList();
         }
-
     }
 
     public class Node

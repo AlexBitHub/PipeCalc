@@ -30,7 +30,7 @@ namespace PipeCalcForm
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -45,6 +45,8 @@ namespace PipeCalcForm
             this.label1 = new System.Windows.Forms.Label();
             this.btnPipeProperties = new System.Windows.Forms.Button();
             this.panelPipeProperties = new System.Windows.Forms.Panel();
+            this.txtBoxMaxPressure = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtBoxRoughness = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -68,6 +70,8 @@ namespace PipeCalcForm
             this.button3 = new System.Windows.Forms.Button();
             this.btnSetMarks = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartGraphic)).BeginInit();
             this.panelOilProperties.SuspendLayout();
@@ -82,7 +86,9 @@ namespace PipeCalcForm
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripLabel1});
+            this.toolStripLabel1,
+            this.toolStripButton2,
+            this.toolStripLabel2});
             this.toolStrip1.Location = new System.Drawing.Point(282, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(785, 25);
@@ -108,8 +114,8 @@ namespace PipeCalcForm
             // chartGraphic
             // 
             this.chartGraphic.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartGraphic.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chartGraphic.Legends.Add(legend2);
             this.chartGraphic.Location = new System.Drawing.Point(282, 25);
             this.chartGraphic.Name = "chartGraphic";
             this.chartGraphic.Size = new System.Drawing.Size(785, 676);
@@ -205,6 +211,8 @@ namespace PipeCalcForm
             // panelPipeProperties
             // 
             this.panelPipeProperties.BackColor = System.Drawing.Color.Silver;
+            this.panelPipeProperties.Controls.Add(this.txtBoxMaxPressure);
+            this.panelPipeProperties.Controls.Add(this.label7);
             this.panelPipeProperties.Controls.Add(this.txtBoxRoughness);
             this.panelPipeProperties.Controls.Add(this.label6);
             this.panelPipeProperties.Controls.Add(this.richTextBox1);
@@ -216,9 +224,25 @@ namespace PipeCalcForm
             this.panelPipeProperties.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPipeProperties.Location = new System.Drawing.Point(0, 152);
             this.panelPipeProperties.Name = "panelPipeProperties";
-            this.panelPipeProperties.Size = new System.Drawing.Size(282, 126);
+            this.panelPipeProperties.Size = new System.Drawing.Size(282, 150);
             this.panelPipeProperties.TabIndex = 3;
             this.panelPipeProperties.Visible = false;
+            // 
+            // txtBoxMaxPressure
+            // 
+            this.txtBoxMaxPressure.Location = new System.Drawing.Point(170, 120);
+            this.txtBoxMaxPressure.Name = "txtBoxMaxPressure";
+            this.txtBoxMaxPressure.Size = new System.Drawing.Size(109, 23);
+            this.txtBoxMaxPressure.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 123);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 17);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Макс давление, МПа";
             // 
             // txtBoxRoughness
             // 
@@ -230,7 +254,7 @@ namespace PipeCalcForm
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 96);
+            this.label6.Location = new System.Drawing.Point(12, 97);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(134, 17);
             this.label6.TabIndex = 9;
@@ -240,7 +264,7 @@ namespace PipeCalcForm
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.Silver;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(14, 58);
+            this.richTextBox1.Location = new System.Drawing.Point(14, 59);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(136, 38);
             this.richTextBox1.TabIndex = 8;
@@ -288,7 +312,7 @@ namespace PipeCalcForm
             // btnStationProperties
             // 
             this.btnStationProperties.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStationProperties.Location = new System.Drawing.Point(0, 278);
+            this.btnStationProperties.Location = new System.Drawing.Point(0, 302);
             this.btnStationProperties.Name = "btnStationProperties";
             this.btnStationProperties.Size = new System.Drawing.Size(282, 30);
             this.btnStationProperties.TabIndex = 6;
@@ -302,7 +326,7 @@ namespace PipeCalcForm
             this.panelStationProperties.Controls.Add(this.buttonSetPumps);
             this.panelStationProperties.Controls.Add(this.buttonSetStations);
             this.panelStationProperties.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStationProperties.Location = new System.Drawing.Point(0, 308);
+            this.panelStationProperties.Location = new System.Drawing.Point(0, 332);
             this.panelStationProperties.Name = "panelStationProperties";
             this.panelStationProperties.Size = new System.Drawing.Size(282, 64);
             this.panelStationProperties.TabIndex = 7;
@@ -330,7 +354,7 @@ namespace PipeCalcForm
             // btnBorderConditions
             // 
             this.btnBorderConditions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBorderConditions.Location = new System.Drawing.Point(0, 372);
+            this.btnBorderConditions.Location = new System.Drawing.Point(0, 396);
             this.btnBorderConditions.Name = "btnBorderConditions";
             this.btnBorderConditions.Size = new System.Drawing.Size(282, 30);
             this.btnBorderConditions.TabIndex = 8;
@@ -346,7 +370,7 @@ namespace PipeCalcForm
             this.panelBorderConditions.Controls.Add(this.txtBoxEndPressure);
             this.panelBorderConditions.Controls.Add(this.label9);
             this.panelBorderConditions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBorderConditions.Location = new System.Drawing.Point(0, 402);
+            this.panelBorderConditions.Location = new System.Drawing.Point(0, 426);
             this.panelBorderConditions.Name = "panelBorderConditions";
             this.panelBorderConditions.Size = new System.Drawing.Size(282, 69);
             this.panelBorderConditions.TabIndex = 9;
@@ -388,7 +412,7 @@ namespace PipeCalcForm
             // btnPipelineProfile
             // 
             this.btnPipelineProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPipelineProfile.Location = new System.Drawing.Point(0, 471);
+            this.btnPipelineProfile.Location = new System.Drawing.Point(0, 495);
             this.btnPipelineProfile.Name = "btnPipelineProfile";
             this.btnPipelineProfile.Size = new System.Drawing.Size(282, 30);
             this.btnPipelineProfile.TabIndex = 10;
@@ -402,7 +426,7 @@ namespace PipeCalcForm
             this.panelPipelineProfile.Controls.Add(this.button3);
             this.panelPipelineProfile.Controls.Add(this.btnSetMarks);
             this.panelPipelineProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPipelineProfile.Location = new System.Drawing.Point(0, 501);
+            this.panelPipelineProfile.Location = new System.Drawing.Point(0, 525);
             this.panelPipelineProfile.Name = "panelPipelineProfile";
             this.panelPipelineProfile.Size = new System.Drawing.Size(282, 77);
             this.panelPipelineProfile.TabIndex = 11;
@@ -446,6 +470,22 @@ namespace PipeCalcForm
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(282, 701);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "saveToolStripButton";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(127, 22);
+            this.toolStripLabel2.Text = "Сохранить настройки";
             // 
             // MainForm
             // 
@@ -514,6 +554,10 @@ namespace PipeCalcForm
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Button buttonSetPumps;
         private System.Windows.Forms.Button buttonSetStations;
+        private System.Windows.Forms.TextBox txtBoxMaxPressure;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
     }
 }
 

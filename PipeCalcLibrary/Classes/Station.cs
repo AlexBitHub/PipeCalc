@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PipeCalcLibrary.Classes
 {
+    [Serializable]
     public class Station
     {
         public string Name { get; set; }
@@ -30,8 +31,10 @@ namespace PipeCalcLibrary.Classes
             Name = name;
             PositionStation = pos;
             Pumps = pumps;
-            CavitationPressure = (from p in pumps select p.CavitationParam).Min(); //cavitation pressure is minimal cavitaion reserve all pumps
+            CavitationPressure = pumps != null ? (pumps.Select(p => p.CavitationParam).Min()) : 0; //cavitation pressure is minimal cavitaion reserve all pumps
         }
+
+        public Station() { }
 
         /// <summary>
         /// Get pressure excluding high mark

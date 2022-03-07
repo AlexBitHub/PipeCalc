@@ -10,32 +10,34 @@ using System.Windows.Forms;
 using PipeCalcLibrary.Classes;
 using System.Xml.Serialization;
 using System.IO;
+using PipeCalcForm.XmlClasses;
 
 namespace PipeCalcForm.AdditionForms
 {
     public partial class StationsForm : Form
     {
-        public List<Station> stations = new List<Station>();
-        private List<Pump> _pumpsFromStore;
-        public StationsForm()
+        public List<Station> Stations = new List<Station>();
+        internal List<Pump> _pumpsFromStore;
+        public StationsForm(List<Station> stations)
         {
             InitializeComponent();
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(XmlPump[]));
 
-            using (FileStream fsB = new FileStream("BoostPumps.xml", FileMode.OpenOrCreate))
+            using (StreamReader fsB = new StreamReader("BoostPumps.xml", Encoding.GetEncoding(1251)))
             {
                 _pumpsFromStore = ((XmlPump[])xmlSerializer.Deserialize(fsB)).Select(p => p.GetRealPump()).ToList();
             }
-            if (stations.Count != 0)
+            if (stations != null)
             {
                 foreach (var st in stations)
                 {
-
+                    StationPage stationPage = new StationPage(st, _pumpsFromStore);
+                    tabControl1.Controls.Add(stationPage);
                 }
             }
             else
             {
-                StationPage mainStation = new StationPage("МНПС", _pumpsFromStore);
+                StationPage mainStation = new StationPage(new Station("НПС 1", null, null), _pumpsFromStore);
                 tabControl1.Controls.Add(mainStation);
             }
             
@@ -45,7 +47,7 @@ namespace PipeCalcForm.AdditionForms
         {
             if (tabControl1.SelectedIndex == 0)
             {
-                StationPage stationPage = new StationPage($"НПС {tabControl1.TabCount}",
+                StationPage stationPage = new StationPage(new Station($"НПС {tabControl1.TabCount + 1}", null, null),
                                                           _pumpsFromStore);
                 tabControl1.Controls.Add(stationPage);
             }
@@ -57,7 +59,10 @@ namespace PipeCalcForm.AdditionForms
         {
             foreach (TabPage page in tabControl1.TabPages)
             {
-                (page as StationPage).GetStation();
+                var st = (page as StationPage).GetStation();
+                if (st == null)
+                    continue;
+                Stations.Add(st);
             }
         }
 
@@ -66,25 +71,26 @@ namespace PipeCalcForm.AdditionForms
             Panel panelStation = new Panel();
             UserTabPageStation newTabStation;
             string nameStation;
-            List<Pump> selectedPumps;
-            public StationPage(string textPage, List<Pump> pumps) : base(textPage)
+            public StationPage(Station station, List<Pump> pumps) : base(station.Name)
             {
-                newTabStation = new UserTabPageStation(pumps);
-                newTabStation.selectedPumps = selectedPumps;
-                nameStation = textPage;
+                newTabStation = new UserTabPageStation(station.Pumps, pumps);
+                newTabStation.StationPosition = station.PositionStation;
+                nameStation = station.Name;
+                
                 panelStation.Dock = DockStyle.Fill;
                 newTabStation.Dock = DockStyle.Fill;
-
                 panelStation.Controls.Add(newTabStation);
                 this.Controls.Add(panelStation);
             }
 
             public Station GetStation()
             {
-                Station st = new Station(nameStation, newTabStation.StationPosition, newTabStation.getPumpsOfStation());
+                var pumps = newTabStation.GetPumpsOfStation();
+                if (pumps.Count == 0)
+                    return null;
+                Station st = new Station(nameStation, newTabStation.StationPosition, newTabStation.GetPumpsOfStation());
                 return st;
             }
         }
-      
     }
 }

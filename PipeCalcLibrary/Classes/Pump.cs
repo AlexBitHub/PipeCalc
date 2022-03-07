@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace PipeCalcLibrary.Classes
 {
+    [Serializable]
     public class Pump
     {
         public string Name { get; set; }
-        List<double> _headCoef { get; set; }
-        List<double> _powerCoef { get; set; }
+        public List<double> _headCoef { get; set; }
+        public List<double> _powerCoef { get; set; }
        
         /// <summary>
         /// Cavitation reserve
         /// </summary>
         public double CavitationParam { get; set; } = 0;
 
+        public Pump() { }
         public Pump(List<double> headCoefs, List<double> powerCoefs, string name)
         {
             _headCoef = headCoefs;

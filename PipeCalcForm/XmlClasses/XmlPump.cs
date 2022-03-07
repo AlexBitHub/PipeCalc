@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using PipeCalcLibrary.Classes;
 
-namespace PipeCalcForm
+namespace PipeCalcForm.XmlClasses
 {
     [Serializable]
     public class XmlPump

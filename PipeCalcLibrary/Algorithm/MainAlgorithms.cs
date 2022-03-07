@@ -75,26 +75,22 @@ namespace PipeCalcLibrary
             EndPressure = Head;
         }
 
-        public static void ConvergenceIteration(LinkedSectorFromNPStoNPS ArraySectors, Oil oil, Pipeline pipe)
+        public static List<double> ConvergenceIteration(LinkedSectorFromNPStoNPS ArraySectors, Oil oil, Pipeline pipe)
         {
             int counter = 0; double Speed; double delta = 10;
             double HeadCurr = 0; double HeadPrev = 0; double SpeedCurr = 0; double SpeedPrev = 0;
-            
+            List<double> headArray = new List<double>();
 
             while (Math.Abs(delta) > 0.01 && counter < 50)
             {
+                headArray.Clear();
                 if (counter == 0) Speed = 2.7;
                 else if (counter == 1) Speed = 2.5;
                 else Speed = SpeedPrev - (HeadPrev * (SpeedCurr - SpeedPrev) / (HeadCurr - HeadPrev));
                 counter++;
                 double PressureInEnd = pipe.EndPressure + pipe.EndHighSpot; // Pressure from which payment starts. ???Maybe grab values from form and put it right here???
 
-                //double Q = (double)(PI * Speed * Math.Pow(NPS_Pipe.pipe.Diameter, 2) / 4);
-                //var Reyn = NumberReynolds(Q, NPS_Pipe.pipe.Diameter, oil.Viscosity);
-                //var HydroRes = HydroResist(NPS_Pipe.pipe.Roughness, Reyn);
-                //var HydroLoss = HydroLosses(HydroRes, Q, NPS_Pipe.pipe.Diameter) * 1000; // multiplicate to get losses per one km!
-
-                List<double> headArray = new List<double>();
+                
                 headArray.Add(PressureInEnd);
                 foreach (var sector in ArraySectors)
                 {
@@ -104,6 +100,7 @@ namespace PipeCalcLibrary
                 delta = PressureInEnd - ArraySectors.head.Data.station.PositionStation.High_mark; // How much does ZSpot of station match with last values of pressure
                 (SpeedPrev, HeadPrev, SpeedCurr, HeadCurr) = (SpeedCurr, HeadCurr, Speed, delta);
             }
+            return headArray;
         }
     }
 }
